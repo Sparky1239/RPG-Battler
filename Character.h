@@ -1,88 +1,69 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
-
 #include <string>
+#include <vector>
+#include "Move.h" //for the seperate move header
 
-
-class Character
-{
+using namespace std;
+class Character{
 private:
-    std::string name; 
-
-    //stats
-        //HP
-    int currentHP;
-    int maxHP;
-        //MANA
-    int currentMana;
-    int maxMana;
-        //DEFENSE
-    int magicDefense;
-    int physicalDefense;
-        //ATTACK
+    string name;
+    int health;
     int strength;
-    int magicPower;
-    
-
-    //Spells or Moves
-
-
+    vector<Move> moves;
 
 public:
-    //default constructor
-    Character();
-    //constructor
-    Character(std::string name,int HP, int Mana, int magic_Defense, int physical_Defense );
-    //getters and setters
-        //current hp
-        int get_currentHP();
-        void set_currentHP(int currentHP);
-        //maximum hp
-        int get_maxHP();
-        void set_maxHP(int maxHP);
-        //current mana
-        int get_currentMana();
-        void set_currentMana(int currentMana);
-        //max mana
-        int get_maxMana();
-        void set_maxMana(int maxMana);
-        //magic defense
-        int get_magicDefense();
-        void set_magicDefense(int magicDefense);
-        //physical defense
-        int get_physicalDefense();
-        void set_physicalDefense(int physicalDefense);
-        //strength
-        int get_strength();
-        void set_strength(int strength);
-        //magicPower
-        int get_magicPower();
-        void set_magicPower(int magicPower);
+    Character(string characterName, int characterHealth, int characterStrength, vector<Move> characterMoves)
+    : name(characterName), health(characterHealth), strength(characterStrength),moves(characterMoves){}
 
-    //battle functions
-        // takes damage from source
-        void takeDamage(int Damage);
+    string getName(){
+        return name;
 
-        //attack
-        void attack(Character target);
+    }
+    int getHealth(){
+        return health;
+    }
+    int getStrength(){
+        return strength;
+    }
 
-        //use ability
-        void ability(Character target, Ability ability);
+    vector<Move> getMoves(){
+        return moves;
 
-        //block
-        void block();
+    }
+
+    void setName(string characterName){
+        name = characterName;
+
+    }
+    void setHealth(int characterHealth) {
+        health = characterHealth;
+    }
 
 
+    void setStrength(int characterStrength){
+
+        strength = characterStrength;
+    }
+
+    void setMoves(vector<Move>characterMoves){
+        moves = characterMoves;
+    }
+
+    // two functions; 
+    void performMove(Move move){
+        //whatever logic needs to go here
+
+    }
+
+    bool isAlive(){
+        return health>0;
+        // + whatever otherlogic needs to go here
 
 
-        
-
-
+    }
 
 
 };
-
-
-
 
 #endif
