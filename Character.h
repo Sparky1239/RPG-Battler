@@ -2,66 +2,51 @@
 #define CHARACTER_H
 #include <string>
 #include <vector>
-#include "Move.h" //for the seperate move header
+//#include "Move.h" //for the seperate move header
 
-using namespace std;
+
 class Character{
 private:
-    string name;
+    std::string name;
     int health;
     int strength;
-    vector<Move> moves;
+    Move moves;
 
 public:
-    Character(string characterName, int characterHealth, int characterStrength, vector<Move> characterMoves)
-    : name(characterName), health(characterHealth), strength(characterStrength),moves(characterMoves){}
+//default constructor
+    Character();
 
-    string getName(){
-        return name;
+//constructor
+    Character::Character(std::string characterName, int characterHealth, int characterStrength, Move characterMoves[]);
+//getters
+    //name
+    std::string getName();
+    //health
+    int getHealth();
+    //strength
+    int getStrength();
 
-    }
-    int getHealth(){
-        return health;
-    }
-    int getStrength(){
-        return strength;
-    }
+    //moves
+    Move getMoves();
+    
+//setters
+    //name    
+    void setName(std::string characterName);
+    //health
+    void setHealth(int characterHealth);
+    //strength
+    void setStrength(int characterStrength);
+    //moves
+    void setMoves(std::Move characterMoves);
 
-    vector<Move> getMoves(){
-        return moves;
+    // function that causes a character to perform a move; 
+    void performMove(Move move, Character target);
 
-    }
+    // does damage to character , can also use negative values to heal
+    void takeDamage(int damage);
 
-    void setName(string characterName){
-        name = characterName;
-
-    }
-    void setHealth(int characterHealth) {
-        health = characterHealth;
-    }
-
-
-    void setStrength(int characterStrength){
-
-        strength = characterStrength;
-    }
-
-    void setMoves(vector<Move>characterMoves){
-        moves = characterMoves;
-    }
-
-    // two functions; 
-    void performMove(Move move){
-        //whatever logic needs to go here
-
-    }
-
-    bool isAlive(){
-        return health>0;
-        // + whatever otherlogic needs to go here
-
-
-    }
+    //checks if character is alive
+    bool isAlive();
 
 
 };
