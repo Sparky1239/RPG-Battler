@@ -61,11 +61,18 @@ public:
 
     //battle functions
         // takes damage from source
-        void takeDamage();
+        void takeDamage(int Damage);
 
         //attack
+        void attack(Character target);
 
         //use ability
+        void ability(Character target, Ability ability);
+
+        //block
+        void block();
+
+
 
 
         
