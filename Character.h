@@ -2,7 +2,8 @@
 #define CHARACTER_H
 #include <string>
 #include <vector>
-//#include "Move.h" //for the seperate move header
+#include "Move.h"
+
 
 
 class Character{
@@ -10,7 +11,7 @@ private:
     std::string name;
     int health;
     int strength;
-    Move moves;
+    Move* moves;
 
 public:
 //default constructor
@@ -37,7 +38,7 @@ public:
     //strength
     void setStrength(int characterStrength);
     //moves
-    void setMoves(std::Move characterMoves);
+    void setMoves(Move characterMoves);
 
     // function that causes a character to perform a move; 
     void performMove(Move move, Character target);

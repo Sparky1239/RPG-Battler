@@ -6,8 +6,9 @@
     Character::Character() : name(""), health(0), strength(0), moves(nullptr) {}
 
 //constructor  //need to add dynamic array for moves
-    Character::Character(std::string name, int health, int strength, Move moves[]) 
-    : name(name), health(health), strength(strength), moves(moves[]) {}
+    Character::Character(std::string name, int health, int strength, Move moves[]) : name(name), health(health), strength(strength) {
+        moves = new Move[4];
+    }
 //getters
 
     //name
@@ -23,11 +24,7 @@
         return strength;
     }
 
-    //moves  //might need to be a pointer figure out how moves will work ... dynamic array??
 
-    Move Character::getMoves(){
-        return moves
-    }
     
 //setters
     //name    
@@ -42,14 +39,14 @@
     void Character::setStrength(int characterStrength){
         this->strength = characterStrength;
     }
-    //moves //again figure out how moves work
-    void Character::setMoves(std::Move characterMoves){
-        this->moves = characterMoves;
-    }
+
+
+    //MOVES FUNCTIONS 
+        //add functions and also output moves
 
     // function that causes a character to perform a move; 
     bool performMove(Move move, Character target){
-        target.takeDamage(  ) //need to figure out how moves do damage
+        target.takeDamage(move.getDamage()); //need to figure out how moves do damage
         
         //return true when move can be performed otherwise false
 
