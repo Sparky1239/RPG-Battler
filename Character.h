@@ -12,6 +12,7 @@ private:
     int health;
     int strength;
     Move* moves;
+    int moveCount;
 
 public:
 //default constructor
@@ -27,8 +28,8 @@ public:
     //strength
     int getStrength();
 
-    //moves
-    Move getMoves();
+
+
     
 //setters
     //name    
@@ -37,8 +38,9 @@ public:
     void setHealth(int characterHealth);
     //strength
     void setStrength(int characterStrength);
-    //moves
-    void setMoves(Move characterMoves);
+
+    //add move if no space return false
+    bool addMove(Move characterMove);
 
     // function that causes a character to perform a move; 
     void performMove(Move move, Character target);

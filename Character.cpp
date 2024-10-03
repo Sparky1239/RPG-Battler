@@ -3,10 +3,10 @@
 #include <string>
 
 //default constructor
-    Character::Character() : name(""), health(0), strength(0), moves(nullptr) {}
+    Character::Character() : name(""), health(0), strength(0), moves(nullptr), moveCount(0) {}
 
 //constructor  //need to add dynamic array for moves
-    Character::Character(std::string name, int health, int strength, Move moves[]) : name(name), health(health), strength(strength) {
+    Character::Character(std::string name, int health, int strength, Move moves[]) : name(name), health(health), strength(strength), moveCount(0) {
         moves = new Move[4];
     }
 //getters
@@ -41,8 +41,14 @@
     }
 
 
-    //MOVES FUNCTIONS 
-        //add functions and also output moves
+    //add move if no space return false
+    bool Character::addMove(Move characterMove){
+        if(moveCount == 4){
+            return false;
+        }
+        moves[moveCount] = characterMove;
+        return true;
+    }
 
     // function that causes a character to perform a move; 
     bool performMove(Move move, Character target){
