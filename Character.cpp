@@ -6,7 +6,7 @@
     Character::Character() : name(""), health(0), strength(0), moves(nullptr), moveCount(0) {}
 
 //constructor  //need to add dynamic array for moves
-    Character::Character(std::string name, int health, int strength, Move moves[]) : name(name), health(health), strength(strength), moveCount(0) {
+    Character::Character(std::string name, int health, int strength) : name(name), health(health), strength(strength), moveCount(0) {
         moves = new Move[4];
     }
 //getters

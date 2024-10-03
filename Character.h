@@ -19,7 +19,7 @@ public:
     Character();
 
 //constructor
-    Character::Character(std::string characterName, int characterHealth, int characterStrength, Move characterMoves[]);
+    Character::Character(std::string characterName, int characterHealth, int characterStrength);
 //getters
     //name
     std::string getName();
