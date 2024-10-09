@@ -5,12 +5,14 @@
 #include <iostream>
 class Move
 {
-private:
-    std::string name;
-    int damage;
+// private:
+//     std::string name;     * need to be discussed *
+//     int damage;
 
     //can add effect but rn just damage negative damage can heal
 public:
+std::string name;
+    int damage;
 //default constructor
 Move();
 //constructor

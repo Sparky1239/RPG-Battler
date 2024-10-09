@@ -3,11 +3,12 @@
 #include <string>
 
 //default constructor
-    Character::Character() : name(""), health(0), strength(0), moves(nullptr), moveCount(0) {}
+Character::Character(std::string name, int health, int strength)
+    : name(name), health(health), strength(strength), moves(4) {}
 
 //constructor  //need to add dynamic array for moves
     Character::Character(std::string name, int health, int strength) : name(name), health(health), strength(strength), moveCount(0) {
-        moves = new Move[4];
+        std::vector<std::string> moves(4); // string vector with 4 space
     }
 //getters
 
