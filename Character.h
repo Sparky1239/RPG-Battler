@@ -7,7 +7,10 @@
 
 class Character {
 private:
+
+//dont change these ones maybe add
   std::string name;
+  int maxHealth;
   int health;
   int strength;
   Move* moves;
@@ -21,8 +24,8 @@ int moveCount;
   Character();
 
   // constructor
-  Character::Character(std::string characterName, int characterHealth,
-                       int characterStrength);
+  Character::Character(std::string name, int maxHealth, int health, 
+                       int strength);
   // getters
   // name
   std::string getName();

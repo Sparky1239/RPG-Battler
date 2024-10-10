@@ -5,7 +5,7 @@ using namespace std;
 
 //return party pointer
   Party* Player::getParty(){
-    return party
+    return party;
   }
 
 int HumanPlayer::selectInput(int totalInputs) {
