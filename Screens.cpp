@@ -1,4 +1,7 @@
 #include "Screens.h"
+#include "Party.h"
+#include "Character.h"
+#include "Player.h"
 
 void startScreenUSER() {
   cout << "|-----------------------|\n";
@@ -9,7 +12,7 @@ void startScreenUSER() {
   cout << "|-----------------------|\n";
 }
 
-void battleScreenUSER() {
+void battleScreenUSER(HumanPlayer user, ComputerPlayer computer) {
   cout << "|------------------------------------|\n";
   cout << "|  USER             |  ENEMY         |\n";
   cout << "|  -----------------|  ------------  |\n";
@@ -24,7 +27,7 @@ void battleScreenUSER() {
   cout << "|------------------------------------|\n";
 }
 
-void attackScreenUSER() {
+void attackScreenUSER(Character currentAttacker) {
   cout << "|-----------------|\n";
   cout << "|     ATTACK      |\n";
   cout << "|-----------------|\n";

@@ -6,18 +6,24 @@
 class Party
 {
 private:
-    Character party[];
+    
     int partySize;
     int maxSize;
-
+    Character* Characters;
 
 public:
+    
     //default constructor
-    Party()
-    //constructor
     Party();
+    //constructor
+    Party(int maxSize);
 
-    ~Party();
+    //add characters return false if no room
+    bool addCharacter(Character character);
+
+    //get character
+    Character getCharacter(int number);
+
 };
 
 

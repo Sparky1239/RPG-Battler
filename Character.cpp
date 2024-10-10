@@ -3,12 +3,12 @@
 #include <string>
 
 //default constructor
-Character::Character(std::string name, int health, int strength)
-    : name(name), health(health), strength(strength), moves(4) {}
+Character::Character()
+    : name("null"), maxHealth(0), health(0), strength(0), moves(nullptr) {}
 
 //constructor  //need to add dynamic array for moves
-    Character::Character(std::string name, int health, int strength) : name(name), health(health), strength(strength), moveCount(0) {
-        std::vector<std::string> moves(4); // string vector with 4 space
+    Character::Character(std::string name, int maxHealth, int health, int strength) : name(name), maxHealth(maxHealth), health(health), strength(strength), moveCount(0) {
+        Move* moves = new Move; // dynamic array that holds moves function later does not allow for more than 4
     }
 //getters
 
@@ -48,6 +48,7 @@ Character::Character(std::string name, int health, int strength)
             return false;
         }
         moves[moveCount] = characterMove;
+        moveCount++;
         return true;
     }
 

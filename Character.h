@@ -6,27 +6,26 @@
 #include "Move.h"
 
 class Character {
-//  private:                             * need to be discussed *
-//   std::string name;
-//   int health;
-//   int strength;
-//   std::vector<Move> moves;
+private:
 
-//   int moveCount;
-
- public:
+//dont change these ones maybe add
   std::string name;
+  int maxHealth;
   int health;
   int strength;
-  std::vector<Move> moves;
+  Move* moves;
+
+int moveCount;
+
+ public:
 
   int moveCount;
   // default constructor
   Character();
 
   // constructor
-  Character::Character(std::string characterName, int characterHealth,
-                       int characterStrength);
+  Character::Character(std::string name, int maxHealth, int health, 
+                       int strength);
   // getters
   // name
   std::string getName();

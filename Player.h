@@ -8,24 +8,29 @@ using namespace std;
 
 // Abstract Player class
 class Player {
- public:
+protected:
   string name;
-  Party party;
+  Party* party;
 
-  virtual void selectMove(Character &attacker,
-                          Character &target) = 0;  // Polymorphism
+public:
+  virtual int selectInput(int totalInputs) ;  // Polymorphism
+
+  //return party pointer
+  Party* getParty();
 };
+
+
 
 // HumanPlayer class
 class HumanPlayer : public Player {
  public:
-  void selectMove(Character &attacker, Character &target) override;
+  int selectInput(int totalInputs) override;
 };
 
 // ComputerPlayer class
 class ComputerPlayer : public Player {
  public:
-  void selectMove(Character &attacker, Character &target) override;
+  int selectInput(int totalInputs) override;
 };
 
 #endif
