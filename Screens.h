@@ -9,7 +9,7 @@ using namespace std;
 // Function declarations
 void startScreenUSER();
 void battleScreenUSER(Party user, Party computer);
-void attackScreenUSER(character currentAttacker);
+void attackScreenUSER(Character currentAttacker);
 void finalWinUSER();
 void finalLossUSER();
 

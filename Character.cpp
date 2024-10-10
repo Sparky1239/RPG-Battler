@@ -8,7 +8,7 @@ Character::Character(std::string name, int health, int strength)
 
 //constructor  //need to add dynamic array for moves
     Character::Character(std::string name, int health, int strength) : name(name), health(health), strength(strength), moveCount(0) {
-        std::vector<std::string> moves(4); // string vector with 4 space
+        Move* moves = new Move; // dynamic array that holds moves function later does not allow for more than 4
     }
 //getters
 
@@ -48,6 +48,7 @@ Character::Character(std::string name, int health, int strength)
             return false;
         }
         moves[moveCount] = characterMove;
+        moveCount++;
         return true;
     }
 

@@ -2,27 +2,45 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
-void HumanPlayer::selectMove(Character &attacker, Character &target) {
-    int moveIndex;
-    
-    cout << "Select a move for " << attacker.name << ": ";
-    
-    for (int i = 0; i < attacker.moves.size(); i++) {
-        cout << i << ": " << attacker.moves[i].name << " (Damage: " << attacker.moves[i].damage << ")\n";
+
+//return party pointer
+  Party* Player::getParty(){
+    return party
+  }
+
+int HumanPlayer::selectInput(int totalInputs) {
+    //makes variable move index
+    int moveIndex=0;
+    //takes user input for move index
+    cin >> moveIndex;
+    //keeps asking until a valid
+    while (moveIndex>totalInputs && moveIndex<0)
+    {
+        cout << "please enter a valid input";
+        cin >> moveIndex;
     }
-   
-    cin >> moveIndex; // prompt user for move index
-   
-    attacker.performMove(attacker.moves[moveIndex], target);
+    //returns the move choice
+    return moveIndex;
+    
+
 }
 
 
 
-void ComputerPlayer::selectMove(Character &attacker, Character &target) {
+int ComputerPlayer::selectInput(int totalInputs) {
+    //copied for time being
+
     
-    int moveIndex = rand() % attacker.moves.size();
-    
-    cout << attacker.name << " (Computer) uses " << attacker.moves[moveIndex].name << " on " << target.name << "!\n";
-    
-    attacker.performMove(attacker.moves[moveIndex], target);
+    //makes variable move index
+    int moveIndex=0;
+    //takes user input for move index
+    cin >> moveIndex;
+    //keeps asking until a valid
+    while (moveIndex>totalInputs && moveIndex<0)
+    {
+        cout << "please enter a valid input";
+        cin >> moveIndex;
+    }
+    //returns the move choice
+    return moveIndex;
 }

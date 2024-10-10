@@ -12,7 +12,7 @@ void startScreenUSER() {
   cout << "|-----------------------|\n";
 }
 
-void battleScreenUSER(Player user, Player computer) {
+void battleScreenUSER(HumanPlayer user, ComputerPlayer computer) {
   cout << "|------------------------------------|\n";
   cout << "|  USER             |  ENEMY         |\n";
   cout << "|  -----------------|  ------------  |\n";
@@ -27,7 +27,7 @@ void battleScreenUSER(Player user, Player computer) {
   cout << "|------------------------------------|\n";
 }
 
-void attackScreenUSER(character currentAttacker) {
+void attackScreenUSER(Character currentAttacker) {
   cout << "|-----------------|\n";
   cout << "|     ATTACK      |\n";
   cout << "|-----------------|\n";
