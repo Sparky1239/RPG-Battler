@@ -12,7 +12,7 @@ void startScreenUSER() {
   cout << "|-----------------------|\n";
 }
 
-void battleScreenUSER(HumanPlayer user, ComputerPlayer computer) {
+void battleScreenUSER(HumanPlayer user, ComputerPlayer computer)  {
   cout << "|------------------------------------|\n";
   cout << "|  USER             |  ENEMY         |\n";
   cout << "|  -----------------|  ------------  |\n";

@@ -37,6 +37,7 @@ void Game::Battle(){
      user.getParty()->getCharacter(1).getHealth() + 
      user.getParty()->getCharacter(2).getHealth() > 0){
 
+    
 
 
         
@@ -48,3 +49,4 @@ void Game::UserTurn();
 void Game::ComputerTurn();
 
 void Game::GameEnd();
+
