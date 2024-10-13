@@ -43,6 +43,8 @@ void Game::Battle(){
     GameEnd();
 }
 
+/*
+
 void Game::UserTurn(){
     std::cout << "User turn; " << std::endl;
     // this then displays the move options (or just options for the user)
@@ -66,6 +68,35 @@ void Game::ComputerTurn(){
 
     computer.getParty()->displayStatus();
 }
+
+
+*/
+
+void Game::UserTurn(){
+    std::cout << "user turn: "<< std::endl;
+    
+    user.getParty()->displayOptions();  // Display available moves for user's party
+    int choice= user.selectInput(user.getParty()->countOptions());  //where the operator can select an option based on the choices
+    Character& chosenCharacter= user.getParty()->getCharacter(user.selectCharacter());.//this is where the character selection is done
+    chosenCharacter.performAction(choice);
+
+    std::cout << "The results of the action user selected are: " << std::endl;
+    user.getParty()->displayStatus();  //status display for the users party
+    computer.getParty()->displayStatus();  //^ same but for the compute party
+}
+void Game::ComputerTurn() {
+    std::cout << "comp turn" << std::endl;
+
+    int choice = computer.selectInput(computer.getParty()->countOptions()); //where the random number selects the move
+    Character& chosenCharacter = computer.getParty()->getCharacter(computer.selectCharacter());  //comp selects the character
+    chosenCharacter.performAction(choice);  //move performed
+
+    std::cout << "results:"<< std::endl;
+    user.getParty()->displayStatus();
+    computer.getParty()->displayStatus();
+
+}
+
 
 
 void Game::GameEnd(){
