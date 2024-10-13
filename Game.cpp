@@ -19,7 +19,7 @@ void Game::InitialiseGame(){
     //once this code stops running it should end the game
 }
 
-void Game::StartBattle(){
+
 void Game::StartBattle() {
     system("CLS");
     std::cout << " 'battle starting' or whatever text" << std::endl;
@@ -27,7 +27,7 @@ void Game::StartBattle() {
     computer.getParty()->displayParty();  // same thing but for the comp party
     Battle();  // starts the main battle loop (or would it be called Main() ??)
 }
-}
+
 
 
 void Game::Battle(){
@@ -43,7 +43,7 @@ void Game::Battle(){
     GameEnd();
 }
 
-void Game::UserTurn();{
+void Game::UserTurn(){
     std::cout << "User turn; " << std::endl;
     // this then displays the move options (or just options for the user)
     user.getParty()->displayOptions();  //just a base func that 'assumes' whatever gets written for the avaliable moves
@@ -57,7 +57,7 @@ void Game::UserTurn();{
 }
 
 
-void Game::ComputerTurn();{
+void Game::ComputerTurn(){
     std::cout << "ComputerPlayer turn" << std::endl;
     int choice = computer.selectInput(computer.getParty()->countOptions());  // the random number selects the move
     computer.performAction(choice);  // Preforms the action but again needs to be put in computerPlayer (assumes function)
@@ -68,7 +68,7 @@ void Game::ComputerTurn();{
 }
 
 
-void Game::GameEnd();{
+void Game::GameEnd(){
     // Determine and display game outcome
     if (user.getParty()->getTotalHealth() > 0) {
         std::cout<< "game won" << std::endl;
