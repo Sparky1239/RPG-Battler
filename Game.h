@@ -31,6 +31,9 @@ void ComputerTurn();
 //shows final screen win or loss
 void GameEnd();
 
+//show the screen for displaying move options
+void displayOptions(int charNum);
+
 
 };
 
