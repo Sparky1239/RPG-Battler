@@ -47,15 +47,23 @@ void Game::Battle(){
 
 void Game::UserTurn(){
     std::cout << "User turn; " << std::endl;
-    // this then displays the move options (or just options for the user)
-    user.getParty()->displayOptions();  //just a base func that 'assumes' whatever gets written for the avaliable moves
-    int choice = user.selectInput(user.getParty()->countOptions()); 
-    // ^| gets the user input
+    //need a for loop that repeat 3 times one for each character very easy to implement
+    for (size_t i = 0; i < 3; i++){
+        
+        // this then displays the move options (or just options for the user)
+        attackScreenUSER(user.getParty()->getCharacter(i));  //attack screen should be coded to show appropriate thing
+        int choice = user.selectInput(user.getParty()->getCharacter(i).); 
+        // ^| gets the user input
 
     user.performAction(choice);  // preforms the action selected by user but this func needs to be put in/implemented in HUmanPlayer (if still having)
     std::cout << "The results of the action user selected is; " << std::endl;
+    }
+
+
+
     user.getParty()->displayStatus();  //for whateever funciton is written that displays the current status of the player
     computer.getParty()->displayStatus();
+
 }
 
 
@@ -97,3 +105,13 @@ void Game::GameEnd(){
 
     }
 }
+
+//show the screen for displaying move options
+void Game::displayOptions(int charNum){
+    
+
+
+}
+
+
+
