@@ -12,7 +12,7 @@ private:
   std::string name;
   int maxHealth;
   int health;
-  int strength;
+  
   Move* moves;
 
 int moveCount;
@@ -24,23 +24,20 @@ int moveCount;
   Character();
 
   // constructor
-  Character::Character(std::string name, int maxHealth, int health, 
-                       int strength);
+  Character::Character(std::string name, int maxHealth, int health);
   // getters
   // name
   std::string getName();
   // health
   int getHealth();
-  // strength
-  int getStrength();
+
 
   // setters
   // name
   void setName(std::string characterName);
   // health
   void setHealth(int characterHealth);
-  // strength
-  void setStrength(int characterStrength);
+
 
   // add move if no space return false
   bool addMove(Move characterMove);

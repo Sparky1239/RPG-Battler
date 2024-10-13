@@ -8,18 +8,14 @@ using namespace std;
 
 // Abstract Player class
 class Player {
-protected:
+ public:
   string name;
   Party* party;
+  virtual int selectInput(int totalInputs);  // Polymorphism
 
-public:
-  virtual int selectInput(int totalInputs) ;  // Polymorphism
-
-  //return party pointer
+  // return party pointer
   Party* getParty();
 };
-
-
 
 // HumanPlayer class
 class HumanPlayer : public Player {
