@@ -40,7 +40,7 @@ int moveCount;
   Move getMove(int moveNum);
   //maxhealth
   int getMaxHealth();
-  
+
 
   // setters
   // name
@@ -54,7 +54,7 @@ int moveCount;
   bool addMove(Move characterMove);
 
   // function that causes a character to perform a move;
-  void performMove(Move move, Character target);
+  void performMove(Move move, Character& target);
 
   // does damage to character , can also use negative values to heal
   void takeDamage(int damage);

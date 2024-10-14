@@ -20,20 +20,22 @@ int HumanPlayer::selectInput(int totalInputs) {
     int moveIndex = -1; // Start with an invalid index
     // Take user input for move index
     while (true) {
-        cout << "Enter move index (0 to " << totalInputs - 1 << "): ";
+        cout << "Enter move index (1 to " << totalInputs  << "): ";
         cin >> moveIndex;
         // Keep asking until a valid input
-        if (moveIndex >= 0 && moveIndex < totalInputs) {
+        if (moveIndex >= 1 && moveIndex <= totalInputs) {
             break; // Valid input, break out of the loop
         }
         cout << "Please enter a valid input." << endl;
     }
+    moveIndex --;
     return moveIndex;
 }
 
 // Takes any input from player unstored
 void HumanPlayer::nullResponse() {
     char charTemp;
+    cout << "Enter any key";
     cin >> charTemp; // Unstored input
 }
 

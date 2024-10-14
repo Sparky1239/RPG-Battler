@@ -19,7 +19,7 @@ void Game::InitialiseGame(){
     //takes input for opening or closing
     int input = user.selectInput(2); 
     //
-    if (input == 1){
+    if (input == 0){
         Battle();
     }
     //once this code stops running it should end the game
@@ -57,23 +57,28 @@ void Game::UserTurn(){
     for (size_t i = 0; i < 3; i++){
         //doesnt let characters at 0 health have a move
         if(user.getParty()->getCharacter(i).getHealth()>0){
-        // this then displays the move options (or just options for the user)
-        screen.attackScreenUSER(user, i);  //attack screen should be coded to show appropriate thing
-        int moveChoice = user.selectInput(user.getParty()->getCharacter(i).getMoveCount()); 
-        // ^| gets the user input
-        //displays target screen
-        screen.attackScreenUSER_target(computer);
-        //chooses target
-        int targetChoice = user.selectInput(computer.getParty()->getPartySize());
+            // this then displays the move options (or just options for the user)
+            screen.attackScreenUSER(user, i);  //attack screen should be coded to show appropriate thing
+            int moveChoice = user.selectInput(user.getParty()->getCharacter(i).getMoveCount()); 
+            // ^| gets the user input
+            //displays target screen
+            screen.attackScreenUSER_target(computer);
+            //chooses target
+            int targetChoice = user.selectInput(computer.getParty()->getPartySize());
 
-    user.getParty()->getCharacter(i).performMove(user.getParty()->getCharacter(i).getMove(moveChoice), computer.getParty()->getCharacter(targetChoice) );  // preforms the action selected by user but this func needs to be put in/implemented in HUmanPlayer (if still having)
+            Move selectedMove = user.getParty()->getCharacter(i).getMove(moveChoice);
+
+            Character& targetEnemy = computer.getParty()->getCharacter(targetChoice);
+
+
+            user.getParty()->getCharacter(i).performMove(selectedMove, targetEnemy);  // preforms the action selected by user but this func needs to be put in/implemented in HUmanPlayer (if still having)
     
-    //text needs to tell what move was used could just use the screen
-    std::cout << "The results of the action user selected is; " << std::endl;
-    screen.battleScreenUSER(user, computer);
+            //text needs to tell what move was used could just use the screen
+            std::cout << "The results of the action user selected is; " << std::endl;
+            screen.battleScreenUSER(user, computer);
     
-    //user has to press some input to continue
-    user.nullResponse();
+            //user has to press some input to continue
+            user.nullResponse();
         }
     }
 
