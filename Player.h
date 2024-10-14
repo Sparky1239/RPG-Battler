@@ -2,46 +2,47 @@
 #define PLAYER_H
 
 #include <string>
-
 #include "Party.h"
+
 using namespace std;
 
 // Abstract Player class
 class Player {
 protected:
-Party* party;
-string name;
+    Party* party;
+    string name;
+
 public:
- 
+    // Constructor
+    Player(Party* party, string name);
 
-  //constructor
-  Player(Party* party, string name);
+    virtual ~Player() = default; // Virtual destructor for cleanup in derived classes
 
-  
-  virtual int selectInput(int totalInputs);  // Polymorphism
+    virtual int selectInput(int totalInputs) = 0; // Pure virtual function
 
-  // return party pointer
-  Party* getParty();
+    // Return party pointer
+    Party* getParty();
 };
 
 // HumanPlayer class
 class HumanPlayer : public Player {
- public:
- //constructor
-  HumanPlayer(Party* party, string name);
+public:
+    // Constructor
+    HumanPlayer(Party* party, string name);
 
-  int selectInput(int totalInputs) override;
-  
-  //takes any input from player unstored
-  void nullResponse();
+    int selectInput(int totalInputs) override;
+
+    // Takes any input from player unstored
+    void nullResponse();
 };
 
 // ComputerPlayer class
 class ComputerPlayer : public Player {
- public:
-  //constructor
-  ComputerPlayer(Party* party, string name);
-  int selectInput(int totalInputs) override;
+public:
+    // Constructor
+    ComputerPlayer(Party* party, string name);
+
+    int selectInput(int totalInputs) override;
 };
 
 #endif
