@@ -108,11 +108,11 @@ int main() {
             ComputerPlayer computerPlayer(ComputerParty, "PAPAGO");
 
 
-            Screens screen;
+
 
             // // Start the game
 
-           Game startGame(computerPlayer,humanPlayer,screen);
+           Game startGame(computerPlayer, humanPlayer);
 
             startGame.InitialiseGame();
             
