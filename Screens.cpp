@@ -36,13 +36,6 @@ void Screens::battleScreenUSER(HumanPlayer user, ComputerPlayer computer)  {
              << setw(8) << " " << "|\n";
     }
 
-    // Footer
-    cout << "|---------------------------------------------------------------------------|\n";
-    cout << "|                               SELECT                                      |\n";
-    cout << "|  1. A                                                                     |\n";
-    cout << "|  2. B                                                                     |\n";
-    cout << "|  3. C                                                                     |\n";
-    cout << "|---------------------------------------------------------------------------|\n";
     cout <<"\n";
 }
 
