@@ -3,38 +3,32 @@
 
 #include "Character.h"
 
-class Party
-{
-private:
-    
-    int partySize;
-    int maxSize;
-    Character* Characters;
+class Party {
+ private:
+  int partySize;
+  int maxSize;
+  Character* Characters;
 
-public:
+ public:
+  // default constructor
+  Party();
+  // constructor
+  Party(int maxSize);
 
-    
-    //default constructor
-    Party();
-    //constructor
-    Party(int maxSize);
+  // Destructor to clean up dynamic memory
+  ~Party();
 
+  // add characters return false if no room
+  bool addCharacter(Character character);
 
+  // get character
+  Character getCharacter(int number);
 
-    //add characters return false if no room
-    bool addCharacter(Character character);
+  // get team health total
+  int getTotalHealth();
 
-    //get character
-    Character getCharacter(int number);
-
-    //get team health total
-    int getTotalHealth();
-
-    //get party size
-    int getPartySize();
-
+  // get party size
+  int getPartySize();
 };
 
-
-
-#endif 
+#endif
