@@ -13,7 +13,7 @@ public:
 void startScreenUSER();
 void battleScreenUSER(HumanPlayer user, ComputerPlayer computer);
 void attackScreenUSER(Character currentAttacker);
-void attackScreenUSER_target(Party opposingTeam);
+void attackScreenUSER_target(ComputerPlayer computer);
 void finalWinUSER();
 void finalLossUSER();
 };
