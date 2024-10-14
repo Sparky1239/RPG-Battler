@@ -25,6 +25,10 @@ int moveCount;
 
   // constructor
   Character(std::string name, int maxHealth, int health);
+
+    // Destructor
+    ~Character(); // Declare destructor
+    
   // getters
   // name
   std::string getName();
@@ -50,6 +54,7 @@ int moveCount;
 
   // does damage to character , can also use negative values to heal
   void takeDamage(int damage);
+
 
 
 };

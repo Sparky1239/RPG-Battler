@@ -1,65 +1,47 @@
 #include "Player.h"
 #include <iostream>
 #include <cstdlib>
+
 using namespace std;
 
-//return party pointer
-  Party* Player::getParty(){
+// Return party pointer
+Party* Player::getParty() {
     return party;
-  }
+}
 
-    //constructor
-  Player::Player(Party* party, string name) : party(party), name(name){}
+// Constructor
+Player::Player(Party* party, string name) : party(party), name(name) {}
 
+// Constructor for HumanPlayer
+HumanPlayer::HumanPlayer(Party* party, string name) : Player(party, name) {}
 
-
-    //constructor
-  HumanPlayer::HumanPlayer(Party* party, string name) : Player(party, name) {
-
-  }
-
-
+// HumanPlayer selects input
 int HumanPlayer::selectInput(int totalInputs) {
-    //makes variable move index
-    int moveIndex=0;
-    //takes user input for move index
-    cin >> moveIndex;
-    //keeps asking until a valid
-    while (moveIndex>totalInputs && moveIndex<0)
-    {
-        cout << "please enter a valid input";
+    int moveIndex = -1; // Start with an invalid index
+    // Take user input for move index
+    while (true) {
+        cout << "Enter move index (0 to " << totalInputs - 1 << "): ";
         cin >> moveIndex;
+        // Keep asking until a valid input
+        if (moveIndex >= 0 && moveIndex < totalInputs) {
+            break; // Valid input, break out of the loop
+        }
+        cout << "Please enter a valid input." << endl;
     }
-    //returns the move choice
     return moveIndex;
-    
-
 }
 
-//takes any input from player unstored
-void HumanPlayer::nullResponse(){
-  char charTemp;
-  cin >> charTemp;
+// Takes any input from player unstored
+void HumanPlayer::nullResponse() {
+    char charTemp;
+    cin >> charTemp; // Unstored input
 }
 
-//constructor computer
+// Constructor for ComputerPlayer
+ComputerPlayer::ComputerPlayer(Party* party, string name) : Player(party, name) {}
 
-ComputerPlayer::ComputerPlayer(Party* party, string name) : Player(party, name){}
-
+// ComputerPlayer selects input (stub implementation)
 int ComputerPlayer::selectInput(int totalInputs) {
-    //copied for time being
-    
-    
-    //makes variable move index
-    int moveIndex=0;
-    //takes user input for move index
-    cin >> moveIndex;
-    //keeps asking until a valid
-    while (moveIndex>totalInputs && moveIndex<0)
-    {
-        cout << "please enter a valid input";
-        cin >> moveIndex;
-    }
-    //returns the move choice
-    return moveIndex;
+    // For now, let's randomly select a valid move index
+    return rand() % totalInputs; // Random index for example
 }

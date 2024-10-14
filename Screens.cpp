@@ -52,7 +52,7 @@ void Screens::attackScreenUSER_target(ComputerPlayer computer) {
   cout << "|-----------------|\n";
 }
 
-void finalWinUSER() {
+void Screens::finalWinUSER() {
   cout << "|-----------------|\n";
   cout << "|    GAME WIN     |\n";
   cout << "|-----------------|\n";
@@ -63,7 +63,7 @@ void finalWinUSER() {
   cout << "Press 2; Exit\n";
 }
 
-void finalLossUSER() {
+void Screens::finalLossUSER() {
   cout << "|-----------------|\n";
   cout << "|    GAME LOSS    |\n";
   cout << "|-----------------|\n";
