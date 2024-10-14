@@ -15,10 +15,11 @@ Character::Character(std::string name, int maxHealth, int health)
 }
 
 
-// Destructor
-Character::~Character() {
-    delete[] moves; // Deallocate memory for moves array
-}
+// // Destructor
+// Character::~Character() {
+//     delete[] moves; // Deallocate memory for moves array
+// }
+
 // getters
 
 // name

@@ -12,9 +12,9 @@ Party::Party(int maxSize) : partySize(0), maxSize(maxSize) {
   Characters = new Character[maxSize];
 }
 
-Party::~Party() {
-  delete[] Characters;  // Free allocated memory
-}
+// Party::~Party() {
+//   delete[] Characters;  // Free allocated memory
+// }
 
 // add characters return false if no room
 

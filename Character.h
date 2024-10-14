@@ -26,8 +26,8 @@ int moveCount;
   // constructor
   Character(std::string name, int maxHealth, int health);
 
-    // Destructor
-    ~Character(); // Declare destructor
+    // // Destructor
+    // ~Character(); // Declare destructor
     
   // getters
   // name

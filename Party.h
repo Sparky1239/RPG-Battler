@@ -15,8 +15,8 @@ class Party {
   // constructor
   Party(int maxSize);
 
-  // Destructor to clean up dynamic memory
-  ~Party();
+  // // Destructor to clean up dynamic memory
+  // ~Party();
 
   // add characters return false if no room
   bool addCharacter(Character character);
