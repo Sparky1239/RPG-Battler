@@ -3,6 +3,8 @@
 
 #include "Player.h"
 #include "Screens.h"
+#include "Character.h"
+#include "Move.h"
 
 
 class Game
@@ -14,7 +16,7 @@ private:
 
 public:
 //Constructor
-Game(ComputerPlayer computer, HumanPlayer user, Screens screen);
+Game(ComputerPlayer computer, HumanPlayer user);
 
 // starts games and asks player if they want to play
 void InitialiseGame();

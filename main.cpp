@@ -103,18 +103,17 @@ int main() {
             ComputerParty->addCharacter(witch);
             
             // // Create players
-            HumanPlayer humanPlayer;
-            humanPlayer.name = "CS_RANGER";
-            humanPlayer.party = UserParty;
+            HumanPlayer humanPlayer(UserParty, "CS_RANGER");
+            
+            ComputerPlayer computerPlayer(ComputerParty, "PAPAGO");
 
-            ComputerPlayer computerPlayer;
-            computerPlayer.name = "PAPAGO";
-            computerPlayer.party = ComputerParty;
 
             Screens screen;
 
             // // Start the game
+
            Game startGame(computerPlayer,humanPlayer,screen);
+
             startGame.InitialiseGame();
             
          

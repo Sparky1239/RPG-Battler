@@ -1,5 +1,7 @@
-rpg: Game.cpp Character.cpp Move.cpp Player.cpp Party.cpp Screens.cpp
-	g++ -std=c++11 Game.cpp Character.cpp Move.cpp Player.cpp Party.cpp Screens.cpp -o rpg
+
+rpg: main.cpp Game.cpp Character.cpp Move.cpp Player.cpp Party.cpp Screens.cpp
+	g++ -std=c++11 main.cpp Game.cpp Character.cpp Move.cpp Player.cpp Party.cpp Screens.cpp -o rpg
+
 
 run: rpg
 	./rpg

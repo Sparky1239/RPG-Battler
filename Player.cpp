@@ -8,6 +8,17 @@ using namespace std;
     return party;
   }
 
+    //constructor
+  Player::Player(Party* party, string name) : party(party), name(name){}
+
+
+
+    //constructor
+  HumanPlayer::HumanPlayer(Party* party, string name) : Player(party, name) {
+
+  }
+
+
 int HumanPlayer::selectInput(int totalInputs) {
     //makes variable move index
     int moveIndex=0;
@@ -31,11 +42,13 @@ void HumanPlayer::nullResponse(){
   cin >> charTemp;
 }
 
+//constructor computer
 
+ComputerPlayer::ComputerPlayer(Party* party, string name) : Player(party, name){}
 
 int ComputerPlayer::selectInput(int totalInputs) {
     //copied for time being
-
+    
     
     //makes variable move index
     int moveIndex=0;
