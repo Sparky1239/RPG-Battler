@@ -5,9 +5,11 @@
 // default constructor
 Party::Party() : partySize(0), maxSize(0), Characters(nullptr) {}
 
-// constructor
+
+
+// constructor ALTERED
 Party::Party(int maxSize) : partySize(0), maxSize(maxSize) {
-  Character* Characters = new Character;
+  Characters = new Character[maxSize];
 }
 
 Party::~Party() {

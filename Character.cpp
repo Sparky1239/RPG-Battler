@@ -7,12 +7,14 @@
 Character::Character()
     : name("null"), maxHealth(0), health(0), moves(nullptr) {}
 
-// constructor  //need to add dynamic array for moves
+
+
 Character::Character(std::string name, int maxHealth, int health)
     : name(name), maxHealth(maxHealth), health(health), moveCount(0) {
-  Move* moves = new Move;  // dynamic array that holds moves function later does
-                           // not allow for more than 4
+  moves = new Move[4];  //ALTERED
 }
+
+
 // Destructor
 Character::~Character() {
     delete[] moves; // Deallocate memory for moves array
@@ -61,5 +63,10 @@ void Character:: performMove(Move move, Character target) {
   target.takeDamage(move.getDamage());  
 }
 // does damage to character, can also use negative values to heal
-void Character::takeDamage(int damage) { this->health = -damage; }
+void Character::takeDamage(int damage) {
+    this->health -= damage;  // CORRECTED IF NOT CORRECT PUT BACK TO ORIGINAL (IN COMMENTS)
+}
+
+/*void Character::takeDamage(int damage) { this->health = -damage; }*/
+
 
