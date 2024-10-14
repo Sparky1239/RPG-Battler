@@ -15,7 +15,7 @@ public:
 // Function declarations
 void startScreenUSER();
 void battleScreenUSER(HumanPlayer user, ComputerPlayer computer);
-void attackScreenUSER(Character currentAttacker);
+void attackScreenUSER(HumanPlayer user, int CharNum);
 void attackScreenUSER_target(ComputerPlayer computer);
 void finalWinUSER();
 void finalLossUSER();
