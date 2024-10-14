@@ -27,6 +27,9 @@ public:
     //get team health total
     int getTotalHealth();
 
+    //get party size
+    int getPartySize();
+
 };
 
 
