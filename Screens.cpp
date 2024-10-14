@@ -3,7 +3,9 @@
 #include "Character.h"
 #include "Player.h"
 
-void startScreenUSER() {
+
+
+void Screens::startScreenUSER() {
   cout << "|-----------------------|\n";
   cout << "|      RPG BATTLER      |\n";
   cout << "|-----------------------|\n";
@@ -12,7 +14,7 @@ void startScreenUSER() {
   cout << "|-----------------------|\n";
 }
 
-void battleScreenUSER(HumanPlayer user, ComputerPlayer computer)  {
+void Screens::battleScreenUSER(HumanPlayer user, ComputerPlayer computer)  {
   cout << "|------------------------------------|\n";
   cout << "|  USER             |  ENEMY         |\n";
   cout << "|  -----------------|  ------------  |\n";
@@ -27,7 +29,7 @@ void battleScreenUSER(HumanPlayer user, ComputerPlayer computer)  {
   cout << "|------------------------------------|\n";
 }
 
-void attackScreenUSER(Character currentAttacker) {
+void Screens::attackScreenUSER(Character currentAttacker) {
   cout << "|-----------------|\n";
   cout << "|     ATTACK      |\n";
   cout << "|-----------------|\n";
@@ -35,6 +37,17 @@ void attackScreenUSER(Character currentAttacker) {
   cout << "| 2. ATTACKOP2    |\n";
   cout << "| 3. ATTACKOP3    |\n";
   cout << "| 4. ATTACKOP4    |\n";
+  cout << "|-----------------|\n";
+}
+
+void Screens::attackScreenUSER_target(ComputerPlayer computer) {
+  cout << "|-----------------|\n";
+  cout << "|     TARGET      |\n";
+  cout << "|-----------------|\n";
+  cout << "| 1. TARGETOP1    |\n";
+  cout << "| 2. TARGETOP2    |\n";
+  cout << "| 3. TARGETOP3    |\n";
+  cout << "|                 |\n";
   cout << "|-----------------|\n";
 }
 

@@ -24,6 +24,10 @@ int Character::getHealth() { return health; }
 int Character::getMoveCount(){
   return moveCount;
 }
+//move
+ Move Character::getMove(int moveNum){
+  return moves[moveNum];
+}
 
 
 // setters

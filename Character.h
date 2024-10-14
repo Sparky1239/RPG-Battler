@@ -32,6 +32,8 @@ int moveCount;
   int getHealth();
   //move count
   int getMoveCount();
+  //move
+  Move getMove(int moveNum);
 
   // setters
   // name
