@@ -58,7 +58,7 @@ void Game::UserTurn(){
         //doesnt let characters at 0 health have a move
         if(user.getParty()->getCharacter(i).getHealth()>0){
         // this then displays the move options (or just options for the user)
-        screen.attackScreenUSER(user.getParty()->getCharacter(i));  //attack screen should be coded to show appropriate thing
+        screen.attackScreenUSER(user, i);  //attack screen should be coded to show appropriate thing
         int moveChoice = user.selectInput(user.getParty()->getCharacter(i).getMoveCount()); 
         // ^| gets the user input
         //displays target screen

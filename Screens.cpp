@@ -19,9 +19,9 @@ void Screens::battleScreenUSER(HumanPlayer user, ComputerPlayer computer)  {
   cout << "|------------------------------------|\n";
   cout << "|  USER             |  ENEMY         |\n";
   cout << "|  -----------------|  ------------  |\n";
-  cout << "|  A  [HP: "<<user.getParty()->getCharacter(0).getHealth()<< "/"<<user.getParty()->getCharacter(0).getMaxHealth() <<"]     |  X [HP: 80]    |\n";
-  cout << "|  B  [HP: 60]      |  Y    [HP: 90] |\n";
-  cout << "|  C [HP: 120]      |  Z  [HP: 100]  |\n";
+  cout << "|  "<<user.getParty()->getCharacter(0).getName()<<"  [HP: "<<user.getParty()->getCharacter(0).getHealth()<< "/"<<user.getParty()->getCharacter(0).getMaxHealth() <<"]      |  "<<computer.getParty()->getCharacter(0).getName()<<" [HP: "<<computer.getParty()->getCharacter(0).getHealth()<< "/"<<computer.getParty()->getCharacter(0).getMaxHealth() <<"]    |\n";
+  cout << "|  "<<user.getParty()->getCharacter(1).getName()<<"  [HP: "<<user.getParty()->getCharacter(1).getHealth()<< "/"<<user.getParty()->getCharacter(1).getMaxHealth() <<"]      |  "<<computer.getParty()->getCharacter(1).getName()<<"    [HP: "<<computer.getParty()->getCharacter(1).getHealth()<< "/"<<computer.getParty()->getCharacter(1).getMaxHealth() <<"] |\n";
+  cout << "|  "<<user.getParty()->getCharacter(2).getName()<<"  [HP: "<<user.getParty()->getCharacter(2).getHealth()<< "/"<<user.getParty()->getCharacter(2).getMaxHealth() <<"]      |  "<<computer.getParty()->getCharacter(2).getName()<<"  [HP: "<<computer.getParty()->getCharacter(2).getHealth()<< "/"<<computer.getParty()->getCharacter(2).getMaxHealth() <<"]  |\n";
   cout << "|------------------------------------|\n";
   cout << "|                SELECT              |\n";
   cout << "|  1. A                              |\n";
@@ -30,14 +30,14 @@ void Screens::battleScreenUSER(HumanPlayer user, ComputerPlayer computer)  {
   cout << "|------------------------------------|\n";
 }
 
-void Screens::attackScreenUSER(Character currentAttacker) {
+void Screens::attackScreenUSER(HumanPlayer user, int CharNum) {
   cout << "|-----------------|\n";
   cout << "|     ATTACK      |\n";
   cout << "|-----------------|\n";
-  cout << "| 1. ATTACKOP1    |\n";
-  cout << "| 2. ATTACKOP2    |\n";
-  cout << "| 3. ATTACKOP3    |\n";
-  cout << "| 4. ATTACKOP4    |\n";
+  cout << "| 1. "<< user.getParty()->getCharacter(CharNum).getMove(0).getName() <<"    |\n";
+  cout << "| 2. "<< user.getParty()->getCharacter(CharNum).getMove(1).getName() <<"    |\n";
+  cout << "| 3. "<< user.getParty()->getCharacter(CharNum).getMove(2).getName() <<"    |\n";
+  cout << "| 4. "<< user.getParty()->getCharacter(CharNum).getMove(3).getName() <<"    |\n";
   cout << "|-----------------|\n";
 }
 
