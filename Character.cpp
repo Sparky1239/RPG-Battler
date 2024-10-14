@@ -20,6 +20,16 @@ std::string Character::getName() { return name; }
 // health
 int Character::getHealth() { return health; }
 
+//move count
+int Character::getMoveCount(){
+  return moveCount;
+}
+//move
+ Move Character::getMove(int moveNum){
+  return moves[moveNum];
+}
+
+
 // setters
 // name
 void Character::setName(std::string characterName) {

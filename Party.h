@@ -24,6 +24,9 @@ public:
     //get character
     Character getCharacter(int number);
 
+    //get team health total
+    int getTotalHealth();
+
 };
 
 

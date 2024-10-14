@@ -25,6 +25,12 @@ int HumanPlayer::selectInput(int totalInputs) {
 
 }
 
+//takes any input from player unstored
+void HumanPlayer::nullResponse(){
+  char charTemp;
+  cin >> charTemp;
+}
+
 
 
 int ComputerPlayer::selectInput(int totalInputs) {

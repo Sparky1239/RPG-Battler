@@ -10,8 +10,11 @@ class Game
 private:
     ComputerPlayer computer;
     HumanPlayer user;
+    Screens screen;
 
 public:
+//Constructor
+Game(ComputerPlayer computer, HumanPlayer user, Screens screen);
 
 // starts games and asks player if they want to play
 void InitialiseGame();
@@ -32,14 +35,8 @@ void ComputerTurn();
 void GameEnd();
 
 
+
 };
 
-Game::Game(/* args */)
-{
-}
-
-Game::~Game()
-{
-}
 
 #endif

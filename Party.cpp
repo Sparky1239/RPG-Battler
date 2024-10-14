@@ -23,3 +23,13 @@ bool Party::addCharacter(Character character){
 Character Party::getCharacter(int number){
     return Characters[number];
 }
+
+//get team health total
+int Party::getTotalHealth(){
+    return Characters[0].getHealth() + Characters[1].getHealth() + Characters[2].getHealth();
+}
+
+//get party size
+int Party::getPartySize(){
+    return partySize;
+}

@@ -21,6 +21,9 @@ class Player {
 class HumanPlayer : public Player {
  public:
   int selectInput(int totalInputs) override;
+  
+  //takes any input from player unstored
+  void nullResponse();
 };
 
 // ComputerPlayer class

@@ -30,7 +30,10 @@ int moveCount;
   std::string getName();
   // health
   int getHealth();
-
+  //move count
+  int getMoveCount();
+  //move
+  Move getMove(int moveNum);
 
   // setters
   // name

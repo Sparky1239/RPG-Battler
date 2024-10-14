@@ -5,11 +5,13 @@
 #include <iostream>
 
 
+Game::Game(ComputerPlayer computer, HumanPlayer user, Screens screen) : computer(computer), user(user), screen(screen) {}
+
 void Game::InitialiseGame(){
     //clear console
     system("CLS");
     //bring up start screen
-    startScreenUSER();
+    screen.startScreenUSER();
     //takes input for opening or closing
     int input = user.selectInput(2); 
     //
@@ -20,13 +22,13 @@ void Game::InitialiseGame(){
 }
 
 
-void Game::StartBattle() {
-    system("CLS");
-    std::cout << " 'battle starting' or whatever text" << std::endl;
-    user.getParty()->displayParty();  //a function to display the details of the user party
-    computer.getParty()->displayParty();  // same thing but for the comp party
-    Battle();  // starts the main battle loop (or would it be called Main() ??)
-}
+//void Game::StartBattle() {
+//    system("CLS");
+//    std::cout << " 'battle starting' or whatever text" << std::endl;
+//    user.getParty()->displayParty();  //a function to display the details of the user party
+//    computer.getParty()->displayParty();  // same thing but for the comp party
+//    Battle();  // starts the main battle loop (or would it be called Main() ??)
+//}
 
 
 
@@ -47,26 +49,57 @@ void Game::Battle(){
 
 void Game::UserTurn(){
     std::cout << "User turn; " << std::endl;
-    // this then displays the move options (or just options for the user)
-    user.getParty()->displayOptions();  //just a base func that 'assumes' whatever gets written for the avaliable moves
-    int choice = user.selectInput(user.getParty()->countOptions()); 
-    // ^| gets the user input
+    //need a for loop that repeat 3 times one for each character very easy to implement
+    for (size_t i = 0; i < 3; i++){
+        //doesnt let characters at 0 health have a move
+        if(user.getParty()->getCharacter(i).getHealth()>0){
+        // this then displays the move options (or just options for the user)
+        screen.attackScreenUSER(user.getParty()->getCharacter(i));  //attack screen should be coded to show appropriate thing
+        int moveChoice = user.selectInput(user.getParty()->getCharacter(i).getMoveCount()); 
+        // ^| gets the user input
+        //displays target screen
+        screen.attackScreenUSER_target(computer);
+        //chooses target
+        int targetChoice = user.selectInput(computer.getParty()->getPartySize());
 
-    user.performAction(choice);  // preforms the action selected by user but this func needs to be put in/implemented in HUmanPlayer (if still having)
+    user.getParty()->getCharacter(i).performMove(user.getParty()->getCharacter(i).getMove(moveChoice), computer.getParty()->getCharacter(targetChoice) );  // preforms the action selected by user but this func needs to be put in/implemented in HUmanPlayer (if still having)
+    
+    //text needs to tell what move was used could just use the screen
     std::cout << "The results of the action user selected is; " << std::endl;
-    user.getParty()->displayStatus();  //for whateever funciton is written that displays the current status of the player
-    computer.getParty()->displayStatus();
+    screen.battleScreenUSER(user, computer);
+    
+    //user has to press some input to continue
+    user.nullResponse();
+        }
+    }
+
 }
 
 
 void Game::ComputerTurn(){
-    std::cout << "ComputerPlayer turn" << std::endl;
-    int choice = computer.selectInput(computer.getParty()->countOptions());  // the random number selects the move
-    computer.performAction(choice);  // Preforms the action but again needs to be put in computerPlayer (assumes function)
-    std::cout << "Action results:" << std::endl;
-    user.getParty()->displayStatus();
 
-    computer.getParty()->displayStatus();
+        std::cout << "ComputerPlayer turn" << std::endl;
+    //need a for loop that repeat 3 times one for each character very easy to implement
+    for (size_t i = 0; i < 3; i++){
+        //doesnt let characters at 0 health have a move
+        if(user.getParty()->getCharacter(i).getHealth()>0){
+            
+            int moveChoice = computer.selectInput(user.getParty()->getCharacter(i).getMoveCount()); 
+            // ^| gets the computer input
+            
+            //chooses target
+            int targetChoice = computer.selectInput(computer.getParty()->getPartySize());
+
+            computer.getParty()->getCharacter(i).performMove(computer.getParty()->getCharacter(i).getMove(moveChoice), user.getParty()->getCharacter(targetChoice) );  // preforms the action selected by user but this func needs to be put in/implemented in HUmanPlayer (if still having)
+    
+            //text needs to tell what move was used could just use the screen
+            std::cout << "The results of the action user selected is; " << std::endl;
+            screen.battleScreenUSER(user, computer);
+            //user has to press some input to continue
+            user.nullResponse();
+        }
+    }
+
 }
 
 
@@ -97,3 +130,8 @@ void Game::GameEnd(){
 
     }
 }
+
+
+    
+
+
