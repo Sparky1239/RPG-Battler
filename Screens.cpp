@@ -4,7 +4,7 @@
 #include "Player.h"
 #include <iostream>
 
-
+using namespace std;
 
 void Screens::startScreenUSER() {
   cout << "|-----------------------|\n";
@@ -45,9 +45,9 @@ void Screens::attackScreenUSER_target(ComputerPlayer computer) {
   cout << "|-----------------|\n";
   cout << "|     TARGET      |\n";
   cout << "|-----------------|\n";
-  cout << "| 1. TARGETOP1    |\n";
-  cout << "| 2. TARGETOP2    |\n";
-  cout << "| 3. TARGETOP3    |\n";
+  cout << "| 1. "<< computer.getParty()->getCharacter(0).getName() <<"    |\n";
+  cout << "| 2. "<< computer.getParty()->getCharacter(1).getName() <<"    |\n";
+  cout << "| 3. "<< computer.getParty()->getCharacter(2).getName() <<"    |\n";
   cout << "|                 |\n";
   cout << "|-----------------|\n";
 }
