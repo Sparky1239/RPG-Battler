@@ -3,6 +3,7 @@
 
 #include "Character.h"
 #include "Party.h"
+#include "Player.h"
 #include <iostream>
 
 
