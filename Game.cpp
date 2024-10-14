@@ -111,12 +111,12 @@ void Game::GameEnd(){
     int input;
     // Determine and display game outcome
     if (user.getParty()->getTotalHealth() > 0) {
-       finalWinUSER();
+       screen.finalWinUSER();
     std::cout << "What is your choice?: "<< std::endl;
     std::cin >> input;
 
     } else {
-        finalLossUSER();
+        screen.finalLossUSER();
         std::cout << "What is your choice?: "<< std::endl;
          std::cin >> input;
 

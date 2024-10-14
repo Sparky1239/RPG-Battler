@@ -13,17 +13,7 @@ using namespace std;
 int main() {
     srand(time(0));  // Seed the random number generator
 
-    // int choice = 0;
-
-    // // Display the start screen
-    // startScreenUSER();
-    // cout << "What is your choice?: ";
-    // cin >> choice;
-    // cout << "\n";
-
-    // // Check if the player wants to start the game
-    // if (choice == 1) {
-    //     while (true) { // Keep playing until the user decides to exit
+    
 
             // // Define moves for Luffy (Tank-type)
             Move SeriousPunch("Serious Punch", 20);
@@ -38,10 +28,10 @@ int main() {
             Move Apocalypse("Apocalypse", 75);
 
             // // Define moves for Seraphine (Support-type)
-            Move SmallHeal("Small Heal", -10); // Negative damage indicates healing
-            Move MediumHeal("Medium Heal", -20); // Negative damage indicates healing
-            Move LargeHeal("Large Heal", -30); // Negative damage indicates healing
-            Move XLargeHeal("X-Large Heal", -40); // Negative damage indicates healing
+            Move SmallPosion("Small Poison", 10); 
+            Move MediumPosion("Medium Poison", 20); 
+            Move LargePoison("Large Poison", 30); 
+            Move XLargePoison("X-Large Poison", 40); 
 
             // // Define moves for Golem
             Move Punch("Punch", 30);
@@ -56,10 +46,10 @@ int main() {
             Move iceSpike("Ice Spike", 30);
 
             // // Define moves for Witch
-            Move S_Heal("Small Heal", -5); // Negative damage indicates healing
-            Move M_Heal("Medium Heal", -10); // Negative damage indicates healing
-            Move L_Heal("Large Heal", -20); // Negative damage indicates healing
-            Move XL_Heal("X-Large Heal", -40); // Negative damage indicates healing
+            Move S_Spell("Small Spell", 5); 
+            Move M_Spell("Medium Spell", 10); 
+            Move L_Spell("Large Spell", 20); 
+            Move XL_Spell("X-Large Spell", 40); 
 
             
             // // Create characters for user's party
@@ -76,10 +66,10 @@ int main() {
             Gandalf.addMove(Apocalypse);
                
             Character Seraphine("Seraphine",300,300);
-            Seraphine.addMove(SmallHeal);
-            Seraphine.addMove(MediumHeal);
-            Seraphine.addMove(LargeHeal);
-            Seraphine.addMove(XLargeHeal);
+            Seraphine.addMove(SmallPosion);
+            Seraphine.addMove(MediumPosion);
+            Seraphine.addMove(LargePoison);
+            Seraphine.addMove(XLargePoison);
 
             // Create characters for Computer's party 
             Character golem("Golem", 700,700);
@@ -95,10 +85,10 @@ int main() {
             goblin.addMove(slash);
             
             Character witch("Witch", 280, 280);
-            witch.addMove(S_Heal);
-            witch.addMove(M_Heal);
-            witch.addMove(L_Heal);
-            witch.addMove(XL_Heal);
+            witch.addMove(S_Spell);
+            witch.addMove(M_Spell);
+            witch.addMove(L_Spell);
+            witch.addMove(XL_Spell);
 
             // // Create parties for User
             Party* UserParty = new Party(3);
@@ -121,27 +111,15 @@ int main() {
             computerPlayer.name = "PAPAGO";
             computerPlayer.party = ComputerParty;
 
+            Screens screen;
+
             // // Start the game
-           Game startGame;
+           Game startGame(computerPlayer,humanPlayer,screen);
             startGame.InitialiseGame();
             
          
             
         
-            // Ask the player if they want to play again
-            // int playAgainChoice;
-            // cout << "Do you want to play again? (1 for Yes, 2 for No): ";
-            // cin >> playAgainChoice;
-
-            // if (playAgainChoice != 1) {
-            //     cout << "Exiting the game. Goodbye!\n";
-            //     break;
-            // }
-        // }
-    // }
-    //   else {
-    //     cout << "Exiting the game. Goodbye!\n";
-    //  }
 
     return 0;
 }
