@@ -8,9 +8,16 @@ using namespace std;
 
 // Abstract Player class
 class Player {
- public:
-  string name;
-  Party* party;
+protected:
+Party* party;
+string name;
+public:
+ 
+
+  //constructor
+  Player(Party* party, string name);
+
+  
   virtual int selectInput(int totalInputs);  // Polymorphism
 
   // return party pointer
@@ -20,6 +27,9 @@ class Player {
 // HumanPlayer class
 class HumanPlayer : public Player {
  public:
+ //constructor
+  HumanPlayer(Party* party, string name);
+
   int selectInput(int totalInputs) override;
   
   //takes any input from player unstored
@@ -29,6 +39,8 @@ class HumanPlayer : public Player {
 // ComputerPlayer class
 class ComputerPlayer : public Player {
  public:
+  //constructor
+  ComputerPlayer(Party* party, string name);
   int selectInput(int totalInputs) override;
 };
 

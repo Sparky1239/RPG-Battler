@@ -2,11 +2,14 @@
 #include "Player.h"
 #include "Party.h"
 #include "Character.h"
+#include "Move.h"
 #include "Screens.h"
 #include <iostream>
 
 
-Game::Game(ComputerPlayer computer, HumanPlayer user, Screens screen) : computer(computer), user(user), screen(screen) {}
+Game::Game(ComputerPlayer computer, HumanPlayer user) : computer(computer), user(user) {
+    Screens screen;
+}
 
 void Game::InitialiseGame(){
     //clear console
@@ -17,7 +20,7 @@ void Game::InitialiseGame(){
     int input = user.selectInput(2); 
     //
     if (input == 1){
-        StartBattle();
+        Battle();
     }
     //once this code stops running it should end the game
 }
@@ -119,7 +122,7 @@ void Game::GameEnd(){
     } else {
         screen.finalLossUSER();
 
-        
+
         std::cout << "What is your choice?: "<< std::endl;
          std::cin >> input;
 

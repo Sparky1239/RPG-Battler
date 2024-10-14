@@ -12,11 +12,14 @@ private:
     Character* Characters;
 
 public:
+
     
     //default constructor
     Party();
     //constructor
     Party(int maxSize);
+
+
 
     //add characters return false if no room
     bool addCharacter(Character character);
