@@ -136,7 +136,10 @@ void Game::GameEnd(){
         InitialiseGame();
           // restarts the game if we are doing that
     } else {
+         cout << "\n";
         std::cout << "Game finished" << std::endl;
+        std::cout << "See you next time! " << std::endl;
+        cout << "\n";
          
 
         exit(0);

@@ -16,75 +16,75 @@ int main() {
     
 
             // // Define moves for Luffy (Tank-type)
-            Move SeriousPunch("Serious Punch", 20);
-            Move Rasengan("Rasengan", 30);
-            Move FirePunch("Fire Punch", 55);
-            Move Gear4("Gear4", 65);
+            Move SeriousPunch("Serious Punch (20dmg)", 20);
+            Move Rasengan("Rasengan (30dmg)", 30);
+            Move FirePunch("Fire Punch (55dmg)", 55);
+            Move Gear4("Gear4 (65dmg)", 65);
             
              // // Define moves for Gandalf (Mage-type)
-            Move InfernoBlast("Inferno Blast", 30);
-            Move SpritBomb("Sprit Bomb", 40);
-            Move UnlimitedVoid("Unlimited Void", 55);
-            Move Apocalypse("Apocalypse", 75);
+            Move InfernoBlast("Inferno Blast (30dmg)", 30);
+            Move SpritBomb("Sprit Bomb (40dmg)", 40);
+            Move UnlimitedVoid("Unlimited Void (55dmg)", 55);
+            Move Apocalypse("Apocalypse (75dmg)", 75);
 
             // // Define moves for Seraphine (Support-type)
-            Move SmallPosion("Small Poison", 10); 
-            Move MediumPosion("Medium Poison", 20); 
-            Move LargePoison("Large Poison", 30); 
-            Move XLargePoison("X-Large Poison", 40); 
+            Move SmallPosion("Small Poison (10dmg)", 10); 
+            Move MediumPosion("Medium Poison (20dmg)", 20); 
+            Move LargePoison("Large Poison (30dmg)", 30); 
+            Move XLargePoison("X-Large Poison (40dmg)", 40); 
 
             // // Define moves for Golem
-            Move Punch("Punch", 30);
-            Move Crunch("Crunch", 20);
-            Move EarthQuake("EarthQuake", 45);
-            Move Bulldoze("Bulldoze", 57);
+            Move Punch("Punch (30dmg)", 30);
+            Move Crunch("Crunch (20dmg)", 20);
+            Move EarthQuake("EarthQuake (45dmg)", 45);
+            Move Bulldoze("Bulldoze (57dmg)", 57);
             
              // // Define moves for Goblin
-            Move slash("Slash", 20);
-            Move heavySlash("Heavy Slash", 40);
-            Move fireball("Fireball", 25);
-            Move iceSpike("Ice Spike", 30);
+            Move slash("Slash (20dmg)", 20);
+            Move heavySlash("Heavy Slash (40dmg)", 40);
+            Move fireball("Fireball (25dmg)", 25);
+            Move iceSpike("Ice Spike (30dmg)", 30);
 
             // // Define moves for Witch
-            Move S_Spell("Small Spell", 5); 
-            Move M_Spell("Medium Spell", 10); 
-            Move L_Spell("Large Spell", 20); 
-            Move XL_Spell("X-Large Spell", 40); 
+            Move S_Spell("Small Spell (5dmg)", 5); 
+            Move M_Spell("Medium Spell (10dmg)", 10); 
+            Move L_Spell("Large Spell (20dmg)", 20); 
+            Move XL_Spell("X-Large Spell (40dmg)", 40); 
 
             
             // // Create characters for user's party
-            Character Luffy("Luffy", 600,600);
+            Character Luffy("Luffy", 400,400);
             Luffy.addMove(SeriousPunch);
             Luffy.addMove(Rasengan);
             Luffy.addMove(FirePunch);
             Luffy.addMove(Gear4);
 
-            Character Gandalf("Gandalf",450,450);
+            Character Gandalf("Gandalf",350,350);
             Gandalf.addMove(InfernoBlast);
             Gandalf.addMove(SpritBomb);
             Gandalf.addMove(UnlimitedVoid);
             Gandalf.addMove(Apocalypse);
                
-            Character Seraphine("Seraphine",300,300);
+            Character Seraphine("Seraphine",200,200);
             Seraphine.addMove(SmallPosion);
             Seraphine.addMove(MediumPosion);
             Seraphine.addMove(LargePoison);
             Seraphine.addMove(XLargePoison);
 
             // Create characters for Computer's party 
-            Character golem("Golem", 700,700);
+            Character golem("Golem", 340,340);
             golem.addMove(Punch);
             golem.addMove(Crunch);
             golem.addMove(EarthQuake);
             golem.addMove(Bulldoze);
 
-            Character goblin("Goblin", 300,300);
+            Character goblin("Goblin", 230,230);
             goblin.addMove(fireball);
             goblin.addMove(iceSpike);
             goblin.addMove(heavySlash);
             goblin.addMove(slash);
             
-            Character witch("Witch", 280, 280);
+            Character witch("Witch", 180, 180);
             witch.addMove(S_Spell);
             witch.addMove(M_Spell);
             witch.addMove(L_Spell);
