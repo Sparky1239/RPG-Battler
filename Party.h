@@ -22,7 +22,7 @@ class Party {
   bool addCharacter(Character character);
 
   // get character
-  Character getCharacter(int number);
+  Character& getCharacter(int number);
 
   // get team health total
   int getTotalHealth();

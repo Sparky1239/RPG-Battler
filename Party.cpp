@@ -28,7 +28,7 @@ bool Party::addCharacter(Character character) {
 }
 
 // get Character
-Character Party::getCharacter(int number) { return Characters[number]; }
+Character& Party::getCharacter(int number) { return Characters[number]; }
 
 // get team health total
 int Party::getTotalHealth() {
