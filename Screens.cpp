@@ -2,6 +2,7 @@
 #include "Party.h"
 #include "Character.h"
 #include "Player.h"
+#include <iostream>
 
 
 
@@ -72,3 +73,5 @@ void finalLossUSER() {
   cout << "Press 1; Play Again \n";
   cout << "Press 2; Exit\n";
 }
+
+

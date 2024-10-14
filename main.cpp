@@ -13,17 +13,17 @@ using namespace std;
 int main() {
     srand(time(0));  // Seed the random number generator
 
-    int choice = 0;
+    // int choice = 0;
 
-    // Display the start screen
-    startScreenUSER();
-    cout << "What is your choice?: ";
-    cin >> choice;
-    cout << "\n";
+    // // Display the start screen
+    // startScreenUSER();
+    // cout << "What is your choice?: ";
+    // cin >> choice;
+    // cout << "\n";
 
-    // Check if the player wants to start the game
-    if (choice == 1) {
-        while (true) { // Keep playing until the user decides to exit
+    // // Check if the player wants to start the game
+    // if (choice == 1) {
+    //     while (true) { // Keep playing until the user decides to exit
 
             // // Define moves for Luffy (Tank-type)
             Move SeriousPunch("Serious Punch", 20);
@@ -129,18 +129,19 @@ int main() {
             
         
             // Ask the player if they want to play again
-            int playAgainChoice;
-            cout << "Do you want to play again? (1 for Yes, 2 for No): ";
-            cin >> playAgainChoice;
+            // int playAgainChoice;
+            // cout << "Do you want to play again? (1 for Yes, 2 for No): ";
+            // cin >> playAgainChoice;
 
-            if (playAgainChoice != 1) {
-                cout << "Exiting the game. Goodbye!\n";
-                break;
-            }
-        }
-    } else {
-        cout << "Exiting the game. Goodbye!\n";
-    }
+            // if (playAgainChoice != 1) {
+            //     cout << "Exiting the game. Goodbye!\n";
+            //     break;
+            // }
+        // }
+    // }
+    //   else {
+    //     cout << "Exiting the game. Goodbye!\n";
+    //  }
 
     return 0;
 }

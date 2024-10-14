@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Party.h"
 #include "Character.h"
+#include "Screens.h"
 #include <iostream>
 
 
@@ -107,24 +108,26 @@ void Game::ComputerTurn(){
 
 
 void Game::GameEnd(){
+    int input;
     // Determine and display game outcome
     if (user.getParty()->getTotalHealth() > 0) {
-        std::cout<< "game won" << std::endl;
-
-    } else {
-        std::cout << "Game lost"<< std::endl;
-
-    }
-    //if we are doing a 'restart or exit' thing, this is where it goes
-    std::cout << "Press 1 to restart game and any other number to exit";
-    int input;
+       finalWinUSER();
+    std::cout << "What is your choice?: "<< std::endl;
     std::cin >> input;
 
+    } else {
+        finalLossUSER();
+        std::cout << "What is your choice?: "<< std::endl;
+         std::cin >> input;
+
+    }
+   
     if (input == 1){
         InitialiseGame();
           // restarts the game if we are doing that
     } else {
         std::cout << "Game finished" << std::endl;
+         
 
         exit(0);
 
