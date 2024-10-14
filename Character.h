@@ -24,7 +24,7 @@ int moveCount;
   Character();
 
   // constructor
-  Character::Character(std::string name, int maxHealth, int health);
+  Character(std::string name, int maxHealth, int health);
   // getters
   // name
   std::string getName();
@@ -51,8 +51,7 @@ int moveCount;
   // does damage to character , can also use negative values to heal
   void takeDamage(int damage);
 
-  // checks if character is alive
-  bool isAlive();
+
 };
 
 #endif
