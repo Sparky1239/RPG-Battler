@@ -19,7 +19,7 @@ int moveCount;
 
  public:
 
-  int moveCount;
+
   // default constructor
   Character();
 

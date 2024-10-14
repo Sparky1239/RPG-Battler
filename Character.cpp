@@ -51,14 +51,9 @@ bool Character::addMove(Move characterMove) {
 }
 
 // function that causes a character to perform a move;
-bool performMove(Move move, Character target) {
-  target.takeDamage(move.getDamage());  // need to figure out how moves do
-                                        // damage
-
-  // return true when move can be performed otherwise false
+void performMove(Move move, Character target) {
+  target.takeDamage(move.getDamage());  
 }
 // does damage to character, can also use negative values to heal
 void Character::takeDamage(int damage) { this->health = -damage; }
 
-// checks if character is alive
-bool isAlive();
