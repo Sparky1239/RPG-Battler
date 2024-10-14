@@ -35,7 +35,10 @@ int Character::getMoveCount(){
  Move Character::getMove(int moveNum){
   return moves[moveNum];
 }
-
+ //maxhealth
+  int Character::getMaxHealth(){
+    return maxHealth;
+  }
 
 // setters
 // name

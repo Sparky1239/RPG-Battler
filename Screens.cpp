@@ -19,7 +19,7 @@ void Screens::battleScreenUSER(HumanPlayer user, ComputerPlayer computer)  {
   cout << "|------------------------------------|\n";
   cout << "|  USER             |  ENEMY         |\n";
   cout << "|  -----------------|  ------------  |\n";
-  cout << "|  A  [HP: 100]     |  X [HP: 80]    |\n";
+  cout << "|  A  [HP: "<<user.getParty()->getCharacter(0).getHealth()<< "/"<<user.getParty()->getCharacter(0).getMaxHealth() <<"]     |  X [HP: 80]    |\n";
   cout << "|  B  [HP: 60]      |  Y    [HP: 90] |\n";
   cout << "|  C [HP: 120]      |  Z  [HP: 100]  |\n";
   cout << "|------------------------------------|\n";

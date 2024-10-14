@@ -38,12 +38,16 @@ int moveCount;
   int getMoveCount();
   //move
   Move getMove(int moveNum);
+  //maxhealth
+  int getMaxHealth();
+  
 
   // setters
   // name
   void setName(std::string characterName);
   // health
   void setHealth(int characterHealth);
+  
 
 
   // add move if no space return false
