@@ -13,7 +13,7 @@ Game::Game(ComputerPlayer computer, HumanPlayer user) : computer(computer), user
 
 void Game::InitialiseGame(){
     //clear console
-    system("CLS");
+    system("clear");
     //bring up start screen
     screen.startScreenUSER();
     //takes input for opening or closing
@@ -52,11 +52,14 @@ void Game::Battle(){
 
 
 void Game::UserTurn(){
-    std::cout << "User turn; " << std::endl;
+    std::cout << "Your turn: " << std::endl;
     //need a for loop that repeat 3 times one for each character very easy to implement
     for (size_t i = 0; i < 3; i++){
         //doesnt let characters at 0 health have a move
         if(user.getParty()->getCharacter(i).getHealth()>0){
+            if (computer.getParty()->getTotalHealth() <= 0) {
+                break;  // (exits loop if 0 for comp party health 0)
+            }
             // this then displays the move options (or just options for the user)
             screen.attackScreenUSER(user, i);  //attack screen should be coded to show appropriate thing
             int moveChoice = user.selectInput(user.getParty()->getCharacter(i).getMoveCount()); 
@@ -74,7 +77,7 @@ void Game::UserTurn(){
             user.getParty()->getCharacter(i).performMove(selectedMove, targetEnemy);  // preforms the action selected by user but this func needs to be put in/implemented in HUmanPlayer (if still having)
     
             //text needs to tell what move was used could just use the screen
-            std::cout << "The results of the action user selected is; " << std::endl;
+            std::cout << user.getParty()->getCharacter(i).getName() <<" used "<< selectedMove.getName() << " on " << targetEnemy.getName() <<  std::endl;
             screen.battleScreenUSER(user, computer);
     
             //user has to press some input to continue
@@ -87,22 +90,29 @@ void Game::UserTurn(){
 
 void Game::ComputerTurn(){
 
-        std::cout << "ComputerPlayer turn" << std::endl;
+        std::cout << "Their turn" << std::endl;
     //need a for loop that repeat 3 times one for each character very easy to implement
     for (size_t i = 0; i < 3; i++){
         //doesnt let characters at 0 health have a move
-        if(user.getParty()->getCharacter(i).getHealth()>0){
+        if(computer.getParty()->getCharacter(i).getHealth()>0){
+            if (user.getParty()->getTotalHealth() <= 0) {
+                break;  // (exits loop if 0 for comp party health 0)
+            }
             
-            int moveChoice = computer.selectInput(user.getParty()->getCharacter(i).getMoveCount()); 
+            int moveChoice = computer.selectInput(computer.getParty()->getCharacter(i).getMoveCount()); 
             // ^| gets the computer input
             
             //chooses target
-            int targetChoice = computer.selectInput(computer.getParty()->getPartySize());
+            int targetChoice = computer.selectInput(user.getParty()->getPartySize());
 
-            computer.getParty()->getCharacter(i).performMove(computer.getParty()->getCharacter(i).getMove(moveChoice), user.getParty()->getCharacter(targetChoice) );  // preforms the action selected by user but this func needs to be put in/implemented in HUmanPlayer (if still having)
+            Move selectedMove = computer.getParty()->getCharacter(i).getMove(moveChoice);
+
+            Character& targetEnemy = user.getParty()->getCharacter(targetChoice);
+
+            computer.getParty()->getCharacter(i).performMove(selectedMove, targetEnemy);  // preforms the action selected by user but this func needs to be put in/implemented in HUmanPlayer (if still having)
     
             //text needs to tell what move was used could just use the screen
-            std::cout << "The results of the action user selected is; " << std::endl;
+            std::cout << computer.getParty()->getCharacter(i).getName() <<" used "<< selectedMove.getName() << " on " << targetEnemy.getName() <<  std::endl;
             screen.battleScreenUSER(user, computer);
             //user has to press some input to continue
             user.nullResponse();
@@ -133,6 +143,13 @@ void Game::GameEnd(){
     }
    
     if (input == 1){
+        for (int i = 0; i < 3; i++ ){
+            user.getParty()->getCharacter(i).setHealth(user.getParty()->getCharacter(i).getMaxHealth());
+            computer.getParty()->getCharacter(i).setHealth(computer.getParty()->getCharacter(i).getMaxHealth());
+
+        }
+
+
         InitialiseGame();
           // restarts the game if we are doing that
     } else {
