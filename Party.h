@@ -1,33 +1,31 @@
 #ifndef PARTY_H
 #define PARTY_H
-
 #include "Character.h"
 
-class Party {
- private:
+// Party class represents the group of characters in the game
+class Party
+{
+private:
   int partySize;
   int maxSize;
-  Character* Characters;
+  Character *Characters; // Dynamic array of characters in the party
 
- public:
-  // default constructor
+public:
+  // Default constructor
   Party();
-  // constructor
+  // Constructor initilizes the party with a max given size
   Party(int maxSize);
 
-  // // Destructor to clean up dynamic memory
-  // ~Party();
-
-  // add characters return false if no room
+  // Add characters return false if no room
   bool addCharacter(Character character);
 
-  // get character
-  Character& getCharacter(int number);
+  // Gets a ref to a character in the party by their index
+  Character &getCharacter(int number);
 
-  // get team health total
+  // Calculate and return the total health of party
   int getTotalHealth();
 
-  // get party size
+  // Returns current party size
   int getPartySize();
 };
 

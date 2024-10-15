@@ -1,58 +1,55 @@
 #include "Character.h"
-
 #include <iostream>
 #include <string>
 
-// default constructor
+// Default constructor
 Character::Character()
     : name("null"), maxHealth(0), health(0), moves(nullptr) {}
 
-
-
+// Constructor that initializes the character with a given name, max health, and current health
 Character::Character(std::string name, int maxHealth, int health)
-    : name(name), maxHealth(maxHealth), health(health), moveCount(0) {
-  moves = new Move[4];  //ALTERED
+    : name(name), maxHealth(maxHealth), health(health), moveCount(0)
+{
+  moves = new Move[4]; 
 }
 
-
-// // Destructor
-// Character::~Character() {
-//     delete[] moves; // Deallocate memory for moves array
-// }
-
-// getters
-
-// name
+// Getter for the character's name
 std::string Character::getName() { return name; }
-// health
+// Getter for the character's current health
 int Character::getHealth() { return health; }
-
-//move count
-int Character::getMoveCount(){
+// Getter for the number of moves the character has learned
+int Character::getMoveCount()
+{
   return moveCount;
 }
-//move
- Move Character::getMove(int moveNum){
+// Getter for a specific move from the moves array based on its index
+Move Character::getMove(int moveNum)
+{
   return moves[moveNum];
 }
- //maxhealth
-  int Character::getMaxHealth(){
-    return maxHealth;
-  }
+// Getter for the character's maximum health
+int Character::getMaxHealth()
+{
+  return maxHealth;
+}
 
-// setters
-// name
-void Character::setName(std::string characterName) {
+// Setter for the character's name
+void Character::setName(std::string characterName)
+{
   this->name = characterName;
 }
-// health
-void Character::setHealth(int characterHealth) {
+// Setter for the character's current health
+void Character::setHealth(int characterHealth)
+{
   this->health = characterHealth;
 }
 
-// add move if no space return false
-bool Character::addMove(Move characterMove) {
-  if (moveCount == 4) {
+// This adds a new move to the character's moves list
+// And if the move count is already 4, return false, else add the move and return true
+bool Character::addMove(Move characterMove)
+{
+  if (moveCount == 4)
+  {
     return false;
   }
   moves[moveCount] = characterMove;
@@ -60,20 +57,20 @@ bool Character::addMove(Move characterMove) {
   return true;
 }
 
-
-
-// function that causes a character to perform a move;
-void Character:: performMove(Move move, Character& target) {
-  target.takeDamage(move.getDamage());  
-}
-// does damage to character, can also use negative values to heal
-void Character::takeDamage(int damage) {
-    this->health -= damage;  // CORRECTED IF NOT CORRECT PUT BACK TO ORIGINAL (IN COMMENTS)
-  if (this->health < 0) {
-        this->health = 0;  // Prevent negative health
-    }
+// Function that makes the character perform a move on a target character
+void Character::performMove(Move move, Character &target)
+{
+  target.takeDamage(move.getDamage());
 }
 
-/*void Character::takeDamage(int damage) { this->health = -damage; }*/
-
+// Reduces the character's health by the given damage amount
+// And if the health drops below 0, it gets set to 0
+void Character::takeDamage(int damage)
+{
+  this->health -= damage; 
+  if (this->health < 0)
+  {
+    this->health = 0;
+  }
+}
 

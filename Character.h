@@ -5,62 +5,42 @@
 
 #include "Move.h"
 
-class Character {
+class Character
+{
 private:
-
-//dont change these ones maybe add
+  // dont change these ones maybe add
   std::string name;
   int maxHealth;
   int health;
-  
-  Move* moves;
 
-int moveCount;
+  Move *moves;
 
- public:
+  int moveCount;
 
-
-  // default constructor
+public:
+  // Default constructor
   Character();
 
-  // constructor
+  // Constructor that takes the name, max health, and current health
   Character(std::string name, int maxHealth, int health);
 
-    // // Destructor
-    // ~Character(); // Declare destructor
-    
-  // getters
-  // name
+  
+  // Below are the getters for thee private variables
   std::string getName();
-  // health
   int getHealth();
-  //move count
   int getMoveCount();
-  //move
   Move getMove(int moveNum);
-  //maxhealth
   int getMaxHealth();
 
-
-  // setters
-  // name
+  // These are the setters for the private variables
   void setName(std::string characterName);
-  // health
   void setHealth(int characterHealth);
-  
-
-
-  // add move if no space return false
+// Below adds a move to the character's set of moves and returns false if the limit has been reachhed
   bool addMove(Move characterMove);
-
-  // function that causes a character to perform a move;
-  void performMove(Move move, Character& target);
-
-  // does damage to character , can also use negative values to heal
+  // Below causes a character to perform a move;
+  void performMove(Move move, Character &target);
+  // Below does damage to character , can also use negative values to heal
   void takeDamage(int damage);
-
-
-
 };
 
 #endif
