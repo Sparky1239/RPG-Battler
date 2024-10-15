@@ -23,6 +23,7 @@ void Screens::battleScreenUSER(HumanPlayer user, ComputerPlayer computer)  {
     cout << "|---------------------------------------------------------------------------|\n";
     cout << "|  USER                                   |  ENEMY                          |\n";
     cout << "|-----------------------------------------|---------------------------------|\n";
+    
 
     // Display user and enemy characters with dynamic padding for consistent formatting
     for (int i = 0; i < 3; ++i) {
@@ -34,6 +35,7 @@ void Screens::battleScreenUSER(HumanPlayer user, ComputerPlayer computer)  {
              << setw(3) << right << computer.getParty()->getCharacter(i).getHealth() << "/"
              << setw(3) << computer.getParty()->getCharacter(i).getMaxHealth() << "]"
              << setw(8) << " " << "|\n";
+    cout << "|---------------------------------------------------------------------------|\n";
     }
 
     cout <<"\n";
