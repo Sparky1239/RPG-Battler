@@ -1,6 +1,0 @@
-Luffy 310 400
-Gandalf 270 350
-Seraphine 143 200
-Golem 0 340
-Goblin 35 230
-Witch 0 180
