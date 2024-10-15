@@ -1,46 +1,42 @@
 #ifndef GAME_H
 #define GAME_H
-
 #include "Player.h"
 #include "Screens.h"
 #include "Character.h"
 #include "Move.h"
 
-
 class Game
 {
 private:
-    ComputerPlayer computer;
-    HumanPlayer user;
-    Screens screen;
+    ComputerPlayer computer; // Comp controlled player
+    HumanPlayer user;        // User controlled player
+    Screens screen;          // Object to hanfle the display svreens
 
 public:
-//Constructor
-Game(ComputerPlayer computer, HumanPlayer user);
+    // Constructor to set up the game with user and comp players
+    Game(ComputerPlayer computer, HumanPlayer user);
 
-// starts games and asks player if they want to play
-void InitialiseGame();
+    // Starts games and asks player if they want to play
+    void InitialiseGame();
 
-//initialises for the battle
-void StartBattle();
+    // Initialises for the battle
+    void StartBattle();
 
-//runs the battle using user and computer
-void Battle();
+    // Runs the battle using user and computer
+    void Battle();
 
-//user turn player picks moves
-void UserTurn();
+    // User turn player picks moves
+    void UserTurn();
 
-//computer picks moves
-void ComputerTurn();
+    // Computer picks moves
+    void ComputerTurn();
 
-//shows final screen win or loss
-void GameEnd();
+    // This shows final screen win or loss
+    void GameEnd();
 
-// Functions for saving and loading the game state
- void saveGame();  // Save the current game state to a file
- void loadGame();  // Load the saved game state from a file
-
+    // Below are functions for saving and loading the game state
+    void saveGame();
+    void loadGame();
 };
-
 
 #endif
