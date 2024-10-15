@@ -13,18 +13,28 @@ Game::Game(ComputerPlayer computer, HumanPlayer user) : computer(computer), user
 }
 
 void Game::InitialiseGame(){
-    //clear console
+    //clears console
     system("clear");
     //bring up start screen
     screen.startScreenUSER();
+    
+    std::cout << "Press 1: Start New Game\n";
+    std::cout << "Press 2: Load Game\n";
+    std::cout << "Press 3: Exit\n";
+    
     //takes input for opening or closing
-    int input = user.selectInput(2); 
-    //
-    if (input == 0){
+    int input = user.selectInput(3); 
+    
+    if (input == 0){ // Start new game
         Battle();
+    } else if (input == 1){ //loads saved game
+        loadGame();
+        Battle(); // continues the battle with loaded stats previously saved
+    } else if (input == 2){ // exits the game
+        exit(0);
     }
-    //once this code stops running it should end the game
 }
+
 
 
 void Game::Battle(){
