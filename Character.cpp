@@ -65,7 +65,6 @@ bool Character::addMove(Move characterMove) {
 // function that causes a character to perform a move;
 void Character:: performMove(Move move, Character& target) {
   target.takeDamage(move.getDamage());  
-  std::cout << move.getDamage() <<"\n"<< target.getHealth()<<"\n";
 }
 // does damage to character, can also use negative values to heal
 void Character::takeDamage(int damage) {
@@ -73,7 +72,6 @@ void Character::takeDamage(int damage) {
   if (this->health < 0) {
         this->health = 0;  // Prevent negative health
     }
-  std::cout << damage ;
 }
 
 /*void Character::takeDamage(int damage) { this->health = -damage; }*/
