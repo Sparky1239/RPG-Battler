@@ -118,22 +118,23 @@ void Game::ComputerTurn()
             // Pauses for the user to press a key
             user.nullResponse();
 
-            screen.saveScreen();
-            int saveOption = user.selectInput(3);
-
-            if (saveOption == 1)
-            {
-                saveGame();
-                std::cout << "Saved\n";
-            }
-            else if (saveOption == 2)
-            {
-                saveGame();
-                std::cout << "Saved and exiting\n";
-                exit(0);
-            }
+           
         }
     }
+        screen.saveScreen();
+        int saveOption = user.selectInput(3);
+
+        if (saveOption == 1)
+        {
+            saveGame();
+            std::cout << "Saved\n";
+        }
+        else if (saveOption == 2)
+        {
+            saveGame();
+            std::cout << "Saved and exiting\n";
+            exit(0);
+        }
 }
 
 // Below function determines the winner, displays the end screen and gives options for restart or exit
