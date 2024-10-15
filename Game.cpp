@@ -57,6 +57,12 @@ void Game::UserTurn(){
     for (size_t i = 0; i < 3; i++){
         //doesnt let characters at 0 health have a move
         if(user.getParty()->getCharacter(i).getHealth()>0){
+
+            screen.battleScreenUSER(user, computer);
+    
+            //user has to press some input to continue
+            user.nullResponse();
+            
             if (computer.getParty()->getTotalHealth() <= 0) {
                 break;  // (exits loop if 0 for comp party health 0)
             }
