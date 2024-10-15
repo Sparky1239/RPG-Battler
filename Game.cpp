@@ -18,9 +18,13 @@ void Game::InitialiseGame(){
     //bring up start screen
     screen.startScreenUSER();
     //takes input for opening or closing
-    int input = user.selectInput(2); 
+    int input = user.selectInput(3); 
     //
     if (input == 0){
+        Battle();
+    }
+    else if(input == 1){
+        loadGame();
         Battle();
     }
     //once this code stops running it should end the game
@@ -43,21 +47,10 @@ void Game::Battle(){
 
 void Game::UserTurn(){
     std::cout << "Your turn: " << std::endl;
-    // This prompts to save the game at the beginning of the user's turn
-    std::cout << "Save the game before the turn? (0: No, 1: Yes, 2: Save and Exit): ";
-    int saveOption = user.selectInput(3);  // This then takes the input: 0, 1, or 2
 
-    if (saveOption == 1){
-        saveGame();  // This saves the game if the user selects to save
-        std::cout << "Saved\n";
-    } else if (saveOption == 2){
-        saveGame();  // Save the game and exit
-        std::cout << "Saved and exiting\n";
-        exit(0);
-    }
-
+    screen.battleScreenUSER(user, computer);
     // Iterate through the user's party for moves
-    for (size_t i = 0; i < 3; i++){
+    for (int i = 0; i < 3; i++){
         // Prevents characters with 0 health from performing a move
         if(user.getParty()->getCharacter(i).getHealth() > 0){
             if (computer.getParty()->getTotalHealth() <= 0) {
@@ -95,7 +88,7 @@ void Game::ComputerTurn(){
 
         std::cout << "Their turn" << std::endl;
     //need a for loop that repeat 3 times one for each character very easy to implement
-    for (size_t i = 0; i < 3; i++){
+    for (int i = 0; i < 3; i++){
         //doesnt let characters at 0 health have a move
         if(computer.getParty()->getCharacter(i).getHealth()>0){
             if (user.getParty()->getTotalHealth() <= 0) {
@@ -119,6 +112,18 @@ void Game::ComputerTurn(){
             screen.battleScreenUSER(user, computer);
             //user has to press some input to continue
             user.nullResponse();
+                // This prompts to save the game at the end of the computer's turn
+    screen.saveScreen();
+    int saveOption = user.selectInput(3);  // This then takes the input: 0, 1, or 2
+
+    if (saveOption == 1){
+        saveGame();  // This saves the game if the user selects to save
+        std::cout << "Saved\n";
+    } else if (saveOption == 2){
+        saveGame();  // Save the game and exit
+        std::cout << "Saved and exiting\n";
+        exit(0);
+    }
         }
     }
 

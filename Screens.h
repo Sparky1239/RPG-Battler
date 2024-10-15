@@ -17,6 +17,7 @@ void startScreenUSER();
 void battleScreenUSER(HumanPlayer user, ComputerPlayer computer);
 void attackScreenUSER(HumanPlayer user, int CharNum);
 void attackScreenUSER_target(ComputerPlayer computer);
+void saveScreen();
 void finalWinUSER();
 void finalLossUSER();
 };
