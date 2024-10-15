@@ -86,11 +86,10 @@ void Screens::finalWinUSER() {
   cout << "|-----------------|\n";
   cout << "|    GAME WIN     |\n";
   cout << "|-----------------|\n";
-  cout << "\n";
-  cout << "\n";
-
-  cout << "Press 1; Play Again \n";
-  cout << "Press 2; Exit\n";
+  cout << "| 1. Play Again   |\n";
+  cout << "| 2. Exit         |\n";
+  cout << "| 3. Save Game    |\n";  
+  cout << "|-----------------|\n";
 }
 
 void Screens::finalLossUSER() {
@@ -98,11 +97,10 @@ void Screens::finalLossUSER() {
   cout << "|-----------------|\n";
   cout << "|    GAME LOSS    |\n";
   cout << "|-----------------|\n";
-  cout << "\n";
-  cout << "\n";
-
-  cout << "Press 1; Play Again \n";
-  cout << "Press 2; Exit\n";
+  cout << "| 1. Play Again   |\n";
+  cout << "| 2. Exit         |\n";
+  cout << "| 3. Save Game    |\n";  
+  cout << "|-----------------|\n";
 }
 
 

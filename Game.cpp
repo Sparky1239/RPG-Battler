@@ -13,28 +13,18 @@ Game::Game(ComputerPlayer computer, HumanPlayer user) : computer(computer), user
 }
 
 void Game::InitialiseGame(){
-    //clears console
+    //clear console
     system("clear");
     //bring up start screen
     screen.startScreenUSER();
-    
-    std::cout << "Press 1: Start New Game\n";
-    std::cout << "Press 2: Load Game\n";
-    std::cout << "Press 3: Exit\n";
-    
     //takes input for opening or closing
-    int input = user.selectInput(3); 
-    
-    if (input == 0){ // Start new game
+    int input = user.selectInput(2); 
+    //
+    if (input == 0){
         Battle();
-    } else if (input == 1){ //loads saved game
-        loadGame();
-        Battle(); // continues the battle with loaded stats previously saved
-    } else if (input == 2){ // exits the game
-        exit(0);
     }
+    //once this code stops running it should end the game
 }
-
 
 
 void Game::Battle(){
@@ -58,12 +48,6 @@ void Game::UserTurn(){
     for (size_t i = 0; i < 3; i++){
         //doesnt let characters at 0 health have a move
         if(user.getParty()->getCharacter(i).getHealth()>0){
-
-            screen.battleScreenUSER(user, computer);
-    
-            //user has to press some input to continue
-            user.nullResponse();
-            
             if (computer.getParty()->getTotalHealth() <= 0) {
                 break;  // (exits loop if 0 for comp party health 0)
             }
@@ -138,21 +122,19 @@ void Game::GameEnd() {
         screen.finalLossUSER();
     }
     
-    std::cout << "Press 1: Play Again\n";
-    std::cout << "Press 2: Exit\n";
-    std::cout << "Press 3: Save Game\n";
-    std::cin >> input;
 
-    if (input == 1){
+    input = user.selectInput(3);
+
+    if (input == 0){
         for (int i = 0; i<3; i++){
             user.getParty()->getCharacter(i).setHealth(user.getParty()->getCharacter(i).getMaxHealth());
             computer.getParty()->getCharacter(i).setHealth(computer.getParty()->getCharacter(i).getMaxHealth());
         }
         InitialiseGame();  //Restarts the game
-    } else if (input == 2){
+    } else if (input == 1){
         std::cout << "Game ended" << std::endl;
         exit(0);
-    } else if (input == 3) {
+    } else if (input == 2) {
         saveGame();  //This saves the game checkpoint
         exit(0);
     }
