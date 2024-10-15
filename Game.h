@@ -36,7 +36,9 @@ void ComputerTurn();
 //shows final screen win or loss
 void GameEnd();
 
-
+// Functions for saving and loading the game state
+ void saveGame();  // Save the current game state to a file
+ void loadGame();  // Load the saved game state from a file
 
 };
 

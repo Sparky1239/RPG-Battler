@@ -4,6 +4,7 @@
 #include "Character.h"
 #include "Move.h"
 #include "Screens.h"
+#include <fstream>
 #include <iostream>
 
 
@@ -24,16 +25,6 @@ void Game::InitialiseGame(){
     }
     //once this code stops running it should end the game
 }
-
-
-//void Game::StartBattle() {
-//    system("CLS");
-//    std::cout << " 'battle starting' or whatever text" << std::endl;
-//    user.getParty()->displayParty();  //a function to display the details of the user party
-//    computer.getParty()->displayParty();  // same thing but for the comp party
-//    Battle();  // starts the main battle loop (or would it be called Main() ??)
-//}
-
 
 
 void Game::Battle(){
@@ -122,47 +113,87 @@ void Game::ComputerTurn(){
 }
 
 
-
-
-
-void Game::GameEnd(){
+void Game::GameEnd() {
     int input;
-    // Determine and display game outcome
+    // Determines and displays the game outcome
     if (user.getParty()->getTotalHealth() > 0) {
        screen.finalWinUSER();
-
-    std::cout << "What is your choice?: "<< std::endl;
-    std::cin >> input;
-
     } else {
         screen.finalLossUSER();
-
-        std::cout << "What is your choice?: "<< std::endl;
-         std::cin >> input;
-
     }
-   
+    
+    std::cout << "Press 1: Play Again\n";
+    std::cout << "Press 2: Exit\n";
+    std::cout << "Press 3: Save Game\n";
+    std::cin >> input;
+
     if (input == 1){
-        for (int i = 0; i < 3; i++ ){
+        for (int i = 0; i<3; i++){
             user.getParty()->getCharacter(i).setHealth(user.getParty()->getCharacter(i).getMaxHealth());
             computer.getParty()->getCharacter(i).setHealth(computer.getParty()->getCharacter(i).getMaxHealth());
-
         }
-
-
-        InitialiseGame();
-          // restarts the game if we are doing that
-    } else {
-         cout << "\n";
-        std::cout << "Game finished" << std::endl;
-        std::cout << "See you next time! " << std::endl;
-        cout << "\n";
-         
-
+        InitialiseGame();  //Restarts the game
+    } else if (input == 2){
+        std::cout << "Game ended" << std::endl;
         exit(0);
-
+    } else if (input == 3) {
+        saveGame();  //This saves the game checkpoint
+        exit(0);
     }
 }
+
+
+void Game::saveGame(){
+    std::ofstream outFile("game_save.txt");
+    if (outFile.is_open()) {
+        // Saves user party
+        for (int i=0; i<user.getParty()->getPartySize();i++){
+            Character& userChar = user.getParty()->getCharacter(i);
+            outFile<<userChar.getName()<< " " << userChar.getHealth()<< " "<< userChar.getMaxHealth()<< "\n";
+        }
+        
+        // Saves the computer party
+        for (int i = 0; i < computer.getParty()->getPartySize();i++){
+            Character& compChar = computer.getParty()->getCharacter(i);
+            outFile << compChar.getName() << " " << compChar.getHealth() << " " << compChar.getMaxHealth() << "\n";
+        }
+
+        outFile.close();
+        std::cout << "Checkpoint saved" << std::endl;
+    } else {
+        std::cerr << "Cannot save checkpoint (error)"<< std::endl;
+    }
+}
+
+// A function to load the saved game state
+void Game::loadGame(){
+    std::ifstream inFile("game_save.txt");
+    if (inFile.is_open()){
+        std::string name;
+        int health, maxHealth;
+
+        // Loads the user party
+        for (int i = 0; i < user.getParty()->getPartySize(); ++i) {
+            inFile >> name >> health >> maxHealth;
+            Character& userChar = user.getParty()->getCharacter(i);
+            userChar.setHealth(health);
+        }
+
+        // Loads the computer party
+        for (int i = 0; i < computer.getParty()->getPartySize(); ++i) {
+            inFile >> name >> health >> maxHealth;
+            Character& compChar = computer.getParty()->getCharacter(i);
+            compChar.setHealth(health);
+        }
+
+        inFile.close();
+        std::cout << "Checkpoint loaded" << std::endl;
+    } else {
+        std::cerr << "Error loading the checkpoint" << std::endl;
+    }
+}
+
+
 
 
     
