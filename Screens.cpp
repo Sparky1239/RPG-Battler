@@ -13,7 +13,8 @@ void Screens::startScreenUSER() {
   cout << "|      RPG BATTLER      |\n";
   cout << "|-----------------------|\n";
   cout << "| Press 1: Start Game   |\n";
-  cout << "| Press 2: Exit         |\n";
+  cout << "| Press 2: Load Game    |\n";
+  cout << "| Press 3: Exit         |\n";
   cout << "|-----------------------|\n";
       cout <<"\n";
 }
@@ -79,6 +80,19 @@ void Screens::attackScreenUSER_target(ComputerPlayer computer) {
   cout << "|                 |\n";
   cout << "|-----------------|\n";
     cout << "\n";
+}
+
+
+void Screens::saveScreen() {
+    cout << "\n";
+  cout << "|-----------------|\n";
+  cout << "|    Save Game?   |\n";
+  cout << "|-----------------|\n";
+  cout << "| 1. No           |\n";
+  cout << "| 2. Save         |\n";
+  cout << "| 3. Save and Exit|\n";  
+  cout << "|-----------------|\n";
+
 }
 
 void Screens::finalWinUSER() {
