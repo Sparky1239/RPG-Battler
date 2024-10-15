@@ -42,13 +42,16 @@ void Screens::battleScreenUSER(HumanPlayer user, ComputerPlayer computer)  {
 }
 
 void Screens::attackScreenUSER(HumanPlayer user, int CharNum) {
-   
-cout << "\n";
+
+    cout << "\n";
     cout << "|-----------------------------|\n";
     cout << "|     ATTACK                  |\n";
     cout << "|-----------------------------|\n";
 
     // Calculate spaces based on the length of each move name, ensuring consistent alignment
+    cout << "|    " << user.getParty()->getCharacter(CharNum).getName() << ": is Attacking! "       
+         << string(9 - user.getParty()->getCharacter(CharNum).getName().length(), ' ') << "|\n";
+    cout << "|                             |\n";
     cout << "| 1. " << user.getParty()->getCharacter(CharNum).getMove(0).getName() 
          << string(25 - user.getParty()->getCharacter(CharNum).getMove(0).getName().length(), ' ') << "|\n";
 
@@ -63,8 +66,6 @@ cout << "\n";
 
     cout << "|-----------------------------|\n";
     cout << "\n";
-
-
 }
 
 void Screens::attackScreenUSER_target(ComputerPlayer computer) {
